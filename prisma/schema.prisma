@@ -15,7 +15,7 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id        String   @id @default(dbgenerated("gen_random_uuid()"))
   email     String   @db.VarChar(255)
   password  String   @db.VarChar(255)
   role      String   @db.VarChar(10)
@@ -28,16 +28,18 @@ model User {
 }
 
 model Profile {
-  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id         String   @id @default(dbgenerated("gen_random_uuid()"))
   userId     String   @unique
   user       User     @relation(fields: [userId], references: [id])
   name       String   @db.VarChar(100)
   job        String   @db.VarChar(100)
   birthDate  DateTime @db.Date
   birthPlace String   @db.VarChar(255)
-  address    DateTime @db.Date
+  address    String   @db.VarChar(255)
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
+
+  @@map("profile")
 }
 
 model Writers {
@@ -65,7 +67,7 @@ model Publisher {
 }
 
 model Books {
-  id            String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id            String          @id @default(dbgenerated("gen_random_uuid()"))
   publisher     Publisher       @relation(fields: [publisherId], references: [id])
   publisherId   Int
   writers       Writers         @relation(fields: [writerId], references: [id])
@@ -80,7 +82,7 @@ model Books {
 }
 
 model BorrowedBooks {
-  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id        String   @id @default(dbgenerated("gen_random_uuid()"))
   borrow    Borrow   @relation(fields: [borrowId], references: [id])
   borrowId  String
   books     Books    @relation(fields: [bookId], references: [id])
@@ -92,7 +94,7 @@ model BorrowedBooks {
 }
 
 model Borrow {
-  id            String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id            String          @id @default(dbgenerated("gen_random_uuid()"))
   user          User            @relation(fields: [userId], references: [id])
   userId        String
   status        String          @db.VarChar(100)

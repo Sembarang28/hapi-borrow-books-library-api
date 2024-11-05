@@ -21,8 +21,8 @@ model User {
   role      String   @db.VarChar(10)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  profile Profile?
+  profile   Profile?
+  borrow    Borrow[]
 
   @@map("users")
 }
@@ -40,13 +40,14 @@ model Profile {
   updatedAt  DateTime @updatedAt
 }
 
-model Writer {
+model Writers {
   id         Int      @id @default(autoincrement())
   name       String   @db.VarChar(255)
   birthDate  DateTime @db.Date
   birthPlace String   @db.VarChar(255)
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
+  books      Books[]
 
   @@map("writers")
 }
@@ -58,18 +59,47 @@ model Publisher {
   city      String   @db.VarChar(255)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  books     Books[]
 
   @@map("publishers")
 }
 
 model Books {
+  id            String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  publisher     Publisher       @relation(fields: [publisherId], references: [id])
+  publisherId   Int
+  writers       Writers         @relation(fields: [writerId], references: [id])
+  writerId      Int
+  title         String          @db.VarChar(255)
+  year          String          @db.VarChar(4)
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  borrowedBooks BorrowedBooks[]
+
+  @@map("books")
+}
+
+model BorrowedBooks {
   id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  publisher Int
-  writer    Int
-  title     String   @db.VarChar(255)
-  year      String   @db.VarChar(4)
+  borrow    Borrow   @relation(fields: [borrowId], references: [id])
+  borrowId  String
+  books     Books    @relation(fields: [bookId], references: [id])
+  bookId    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@map("books")
+  @@map("borrowed_books")
+}
+
+model Borrow {
+  id            String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user          User            @relation(fields: [userId], references: [id])
+  userId        String
+  borrowDate    DateTime        @db.Date
+  returnDate    DateTime        @db.Date
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  borrowedBooks BorrowedBooks[]
+
+  @@map("borrow")
 }

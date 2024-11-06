@@ -5,7 +5,7 @@ async function jwtConfig(server: Hapi.Server) {
   await server.register(Jwt);
 
   server.auth.strategy('jwt', 'jwt', {
-    keys: process.env.JWT_KEY,
+    keys: process.env.ACCESS_KEY,
     verify: {
       aud: false,
       iss: false,
@@ -13,7 +13,16 @@ async function jwtConfig(server: Hapi.Server) {
       maxAgeSec: 60 * 60,
     },
     validate: (artifacts: any, request: Hapi.Request, h: Hapi.ResponseToolkit) => {
-      return { isValid: true, credentials: { userId: artifacts.decoded.payload.userId } };
+      const { userId, role } = artifacts.decoded.payload;
+
+      if (userId && role) {
+        return {
+          isValid: true,
+          credentials: { userId, role },
+        };
+      }
+
+      return { isValid: false };
     },
   });
 

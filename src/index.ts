@@ -1,6 +1,7 @@
 import Hapi from "@hapi/hapi";
 import dotenv from "dotenv";
 import jwtConfig from "./config/jwtConfig";
+import authRoutes from "./auth/routes";
 dotenv.config();
 
 const port: number = Number(process.env.PORT) || 3000;
@@ -10,8 +11,6 @@ async function init() {
     port,
     host: "localhost",
   });
-
-  await jwtConfig(server);
 
   server.route({
     method: "GET",
@@ -26,6 +25,10 @@ async function init() {
       });
     }
   });
+
+  await jwtConfig(server);
+
+  await authRoutes(server);
 
   await server.start();
   console.log(`Server running on ${server.info.uri}`);

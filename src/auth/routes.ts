@@ -21,6 +21,14 @@ async function authRoutes(server: Server) {
           }),
         }
       }
+    },
+    {
+      method: 'POST',
+      path: '/auth/refresh',
+      handler: authHandler.refreshToken,
+      options: {
+        auth: false,
+      }
     }
   ]);
 }

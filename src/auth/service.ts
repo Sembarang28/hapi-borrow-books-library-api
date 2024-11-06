@@ -54,7 +54,7 @@ class AuthService {
         },
         { key: process.env.REFRESH_KEY as string, algorithm: 'HS256' },
         { ttlSec: 7 * 24 * 60 * 60 }
-      )
+      );
 
       const accessToken = jwt.token.generate(
         {
@@ -63,7 +63,7 @@ class AuthService {
         },
         { key: process.env.ACCESS_KEY as string, algorithm: 'HS256' },
         { ttlSec: 3600 }
-      )
+      );
 
       return {
         body: {
@@ -84,6 +84,42 @@ class AuthService {
           message: 'login service error!',
         },
         code: 500,
+      }
+    }
+  }
+
+  async refreshToken(refreshToken: any) {
+    try {
+      const { decoded } = jwt.token.decode(refreshToken);
+      jwt.token.verify(decoded, process.env.REFRESH_KEY as string);
+
+
+      const { userId, role } = decoded.payload;
+
+      const accessToken = jwt.token.generate(
+        {
+          userId,
+          role,
+        },
+        { key: process.env.ACCESS_KEY as string, algorithm: 'HS256' },
+        { ttlSec: 3600 }
+      );
+
+      return {
+        body: {
+          status: true,
+          message: "New Access Token generated!",
+        },
+        code: 200
+      }
+    } catch (error) {
+      console.log('refresh token service error: ', error);
+      return {
+        body: {
+          status: false,
+          message: 'Invalid or expired refresh token',
+        },
+        code: 401,
       }
     }
   }

@@ -5,7 +5,9 @@ async function authRoutes(server: Server) {
     {
       method: 'POST',
       path: '/auth/login',
-
+      options: {
+        auth: false,
+      }
     }
   ])
 }

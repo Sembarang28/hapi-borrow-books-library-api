@@ -1,6 +1,9 @@
 import Hapi from "@hapi/hapi";
+import Jwt from '@hapi/jwt';
 
 async function jwtConfig(server: Hapi.Server) {
+  await server.register(Jwt);
+
   server.auth.strategy('jwt', 'jwt', {
     keys: process.env.JWT_KEY,
     verify: {
@@ -16,3 +19,5 @@ async function jwtConfig(server: Hapi.Server) {
 
   server.auth.default('jwt');
 }
+
+export default jwtConfig;

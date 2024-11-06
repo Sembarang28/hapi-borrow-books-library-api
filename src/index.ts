@@ -1,5 +1,6 @@
 import Hapi from "@hapi/hapi";
 import dotenv from "dotenv";
+import jwtConfig from "./config/jwtConfig";
 dotenv.config();
 
 const port: number = Number(process.env.PORT) || 3000;
@@ -10,13 +11,21 @@ async function init() {
     host: "localhost",
   });
 
+  await jwtConfig(server);
+
   server.route({
     method: "GET",
     path: "/test",
+    options: {
+      auth: false,
+    },
     handler: async function (request, h) {
-      return 'Hello, TypeScript with hapi!';
+      return h.response({
+        status: true,
+        message: "Hello World!!",
+      });
     }
-  })
+  });
 
   await server.start();
   console.log(`Server running on ${server.info.uri}`);

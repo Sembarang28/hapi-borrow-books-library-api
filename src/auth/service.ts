@@ -88,7 +88,6 @@ class AuthService {
     try {
       const decoded: JwtPayload = Jwt.verify(refreshToken, process.env.REFRESH_KEY as string) as JwtPayload;
 
-
       const { userId, role } = decoded;
 
       const accessToken = Jwt.sign({

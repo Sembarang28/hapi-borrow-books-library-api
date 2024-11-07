@@ -14,7 +14,7 @@ async function response(h: Hapi.ResponseToolkit, statusCode: number, resBody: Re
         path: '/',
         ttl: 7 * 24 * 60 * 60,
         isSameSite: "None",
-        isSecure: true,
+        isSecure: false,
       })
     };
 

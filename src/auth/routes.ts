@@ -29,6 +29,14 @@ async function authRoutes(server: Server) {
       options: {
         auth: false,
       }
+    },
+    {
+      method: 'POST',
+      path: '/auth/logout',
+      handler: authHandler.logout,
+      options: {
+        auth: false,
+      }
     }
   ]);
 }

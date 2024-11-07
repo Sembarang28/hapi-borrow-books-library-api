@@ -1,7 +1,6 @@
 import Hapi from '@hapi/hapi';
 import response from '../helpers/response';
 import authService from './service';
-import jwt from '@hapi/jwt';
 
 class AuthHandler {
   async login(request: Hapi.Request, h: Hapi.ResponseToolkit) {
@@ -37,10 +36,28 @@ class AuthHandler {
 
       return response(h, refresh.code, refresh.body);
     } catch (error) {
-      console.log('login handler error: ', error);
+      console.log('refresh token handler error: ', error);
       const resBody = {
         status: false,
         message: 'refresh token handler error',
+      }
+      return response(h, 500, resBody);
+    }
+  }
+
+
+  async logout(request: Hapi.Request, h: Hapi.ResponseToolkit) {
+    try {
+      const resBody = {
+        status: true,
+        message: 'Logout berhasil!'
+      }
+      return h.response(resBody).unstate('refreshToken');
+    } catch (error) {
+      console.log('logout handler error: ', error);
+      const resBody = {
+        status: false,
+        message: 'logout handler error',
       }
       return response(h, 500, resBody);
     }

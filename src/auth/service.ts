@@ -1,6 +1,6 @@
 import prisma from "../config/databaseConnection";
 import bcrypt from 'bcrypt';
-import jwt from '@hapi/jwt';
+import Jwt, { JwtPayload } from 'jsonwebtoken';
 
 class AuthService {
   async login(email: string, password: string) {
@@ -47,23 +47,19 @@ class AuthService {
         }
       }
 
-      const refreshToken = jwt.token.generate(
-        {
-          userId: user.id,
-          role: user.role,
-        },
-        { key: process.env.REFRESH_KEY as string, algorithm: 'HS256' },
-        { ttlSec: 7 * 24 * 60 * 60 }
-      );
+      const refreshToken = Jwt.sign({
+        userId: user.id,
+        role: user.role,
+      }, process.env.REFRESH_KEY as string, {
+        expiresIn: '7d',
+      });
 
-      const accessToken = jwt.token.generate(
-        {
-          userId: user.id,
-          role: user.role,
-        },
-        { key: process.env.ACCESS_KEY as string, algorithm: 'HS256' },
-        { ttlSec: 3600 }
-      );
+      const accessToken = Jwt.sign({
+        userId: user.id,
+        role: user.role,
+      }, process.env.ACCESS_KEY as string, {
+        expiresIn: '1h',
+      });
 
       return {
         body: {
@@ -90,25 +86,25 @@ class AuthService {
 
   async refreshToken(refreshToken: any) {
     try {
-      const { decoded } = jwt.token.decode(refreshToken);
-      jwt.token.verify(decoded, process.env.REFRESH_KEY as string);
+      const decoded: JwtPayload = Jwt.verify(refreshToken, process.env.REFRESH_KEY as string) as JwtPayload;
 
 
-      const { userId, role } = decoded.payload;
+      const { userId, role } = decoded;
 
-      const accessToken = jwt.token.generate(
-        {
-          userId,
-          role,
-        },
-        { key: process.env.ACCESS_KEY as string, algorithm: 'HS256' },
-        { ttlSec: 3600 }
-      );
+      const accessToken = Jwt.sign({
+        userId,
+        role,
+      }, process.env.ACCESS_KEY as string, {
+        expiresIn: '7d',
+      });
 
       return {
         body: {
           status: true,
           message: "New Access Token generated!",
+          data: {
+            accessToken,
+          }
         },
         code: 200
       }

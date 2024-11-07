@@ -23,9 +23,7 @@ class AuthHandler {
 
   async refreshToken(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
-      console.log('test')
       const refreshToken = request.state.refreshToken;
-      console.log(refreshToken);
 
       if (!refreshToken) {
         const resBody = {

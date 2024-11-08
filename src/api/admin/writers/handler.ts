@@ -56,7 +56,11 @@ class WriterHandler {
   }
   async updateWriterHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
+      const { id } = request.params as { id: string };
 
+      const updateWriter = await writerService.updateWriter(Number(id), request.payload as IWriter);
+
+      return response(h, updateWriter.code, updateWriter.body);
     } catch (error) {
       console.log('update writer handler error: ', error);
       const resBody = {
@@ -69,7 +73,11 @@ class WriterHandler {
   }
   async deleteWriterHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
+      const { id } = request.params as { id: string };
 
+      const deleteWriter = await writerService.deleteWriter(Number(id));
+
+      return response(h, deleteWriter.code, deleteWriter.body);
     } catch (error) {
       console.log('delete writer handler error: ', error);
       const resBody = {

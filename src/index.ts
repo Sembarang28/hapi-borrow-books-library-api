@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import jwtConfig from "./config/jwtConfig";
 import authRoutes from "./api/auth/routes";
 import adminRoutes from "./api/admin/admin/routes";
+import writerRoutes from "./api/admin/writers/routes";
 dotenv.config();
 
 const port: number = Number(process.env.PORT) || 3000;
@@ -30,6 +31,7 @@ async function init() {
 
   await authRoutes(server);
   await adminRoutes(server);
+  await writerRoutes(server);
 
   await server.start();
   console.log(`Server running on ${server.info.uri}`);

@@ -29,6 +29,16 @@ class WriterService {
     try {
       const readAllWriter = await writerModel.readAllWriter(name);
 
+      if (!readAllWriter[0]) {
+        return {
+          body: {
+            status: false,
+            message: 'Data tidak berhasil ditemukan!',
+          },
+          code: 404,
+        }
+      }
+
       return {
         body: {
           status: true,
@@ -52,6 +62,16 @@ class WriterService {
   async readWriterById(id: number) {
     try {
       const readWriterById = await writerModel.readWriterById(id);
+
+      if (!readWriterById) {
+        return {
+          body: {
+            status: false,
+            message: 'Data tidak berhasil ditemukan!',
+          },
+          code: 404,
+        }
+      }
 
       return {
         body: {

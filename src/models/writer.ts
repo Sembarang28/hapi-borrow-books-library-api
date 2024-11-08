@@ -16,6 +16,11 @@ class WriterModel {
     return await prisma.writers.findMany({
       where: {
         name: { contains: name, mode: 'insensitive' },
+      },
+      select: {
+        name: true,
+        birthDate: true,
+        birthPlace: true,
       }
     });
   }

@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import Jwt, { JwtPayload } from 'jsonwebtoken';
-import IAuth from "../interfaces/auth";
-import UserModel from "../models/user";
+import IAuth from '../../interfaces/auth';
+import UserModel from '../../models/user';
 
 class AuthService {
   async login(auth: IAuth) {

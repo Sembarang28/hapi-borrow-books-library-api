@@ -1,7 +1,7 @@
 import Hapi from '@hapi/hapi';
-import response from '../helpers/response';
+import response from '../../helpers/response';
 import authService from './service';
-import IAuth from '../interfaces/auth';
+import IAuth from '../../interfaces/auth';
 
 class AuthHandler {
   async login(request: Hapi.Request, h: Hapi.ResponseToolkit) {

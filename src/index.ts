@@ -1,12 +1,11 @@
 import Hapi from "@hapi/hapi";
 import dotenv from "dotenv";
 import jwtConfig from "./config/jwtConfig";
-import authRoutes from "./auth/routes";
-import adminRoutes from "./admin/admin/routes";
+import authRoutes from "./api/auth/routes";
+import adminRoutes from "./api/admin/admin/routes";
 dotenv.config();
 
 const port: number = Number(process.env.PORT) || 3000;
-
 async function init() {
   const server: Hapi.Server = Hapi.server({
     port,

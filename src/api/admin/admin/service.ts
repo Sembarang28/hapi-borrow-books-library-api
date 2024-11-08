@@ -1,6 +1,6 @@
-import { Password } from "../../interfaces/auth";
-import IUser from "../../interfaces/user";
-import UserModel from "../../models/user";
+import { Password } from "../../../interfaces/auth";
+import IUser from "../../../interfaces/user";
+import UserModel from "../../../models/user";
 import bcrypt from 'bcrypt';
 
 class AdminServices {

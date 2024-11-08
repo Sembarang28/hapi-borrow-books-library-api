@@ -1,8 +1,8 @@
 import Hapi from '@hapi/hapi';
-import response from '../../helpers/response';
+import response from '../../../helpers/response';
 import adminServices from './service';
-import IUser from '../../interfaces/user';
-import { Password } from '../../interfaces/auth';
+import IUser from '../../../interfaces/user';
+import { Password } from '../../../interfaces/auth';
 
 class AdminHandler {
   async updateAdminHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {

@@ -57,7 +57,7 @@ model Writers {
 model Publisher {
   id        Int      @id @default(autoincrement())
   name      String   @db.VarChar(255)
-  address   DateTime @db.Date
+  address   String   @db.VarChar(255)
   city      String   @db.VarChar(255)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

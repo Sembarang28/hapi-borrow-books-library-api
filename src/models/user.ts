@@ -52,7 +52,7 @@ class UserModel {
             data: {
               name: data.name,
               job: data.job,
-              birthDate: data.birthDate,
+              birthDate: new Date(data.birthDate),
               birthPlace: data.birthPlace,
               address: data.address,
             }

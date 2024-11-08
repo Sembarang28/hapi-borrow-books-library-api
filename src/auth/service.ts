@@ -1,13 +1,12 @@
-import prisma from "../config/databaseConnection";
 import bcrypt from 'bcrypt';
 import Jwt, { JwtPayload } from 'jsonwebtoken';
 import IAuth from "../interfaces/auth";
-import AuthModel from "../models/user";
+import UserModel from "../models/user";
 
 class AuthService {
   async login(auth: IAuth) {
     try {
-      const user = await AuthModel.findUserByEmail(auth.email);
+      const user = await UserModel.findUserByEmail(auth.email);
 
       if (!user) {
         return {

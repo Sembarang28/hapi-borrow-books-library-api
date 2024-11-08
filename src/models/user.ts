@@ -1,6 +1,21 @@
 import prisma from "../config/databaseConnection";
+import IUser from "../interfaces/user";
 
-class AuthModel {
+class UserModel {
+  static async findUserById(id: string) {
+    return await prisma.user.findUnique({
+      where: {
+        id,
+      },
+      select: {
+        email: true,
+        password: true,
+        role: true,
+        profile: true,
+      },
+    })
+  }
+
   static async findUserByEmail(email: string) {
     return await prisma.user.findFirst({
       where: {
@@ -24,6 +39,39 @@ class AuthModel {
       }
     });
   }
+
+  static async updateUser(id: string, data: IUser) {
+    return await prisma.user.update({
+      where: {
+        id,
+      },
+      data: {
+        email: data.email,
+        profile: {
+          update: {
+            data: {
+              name: data.name,
+              job: data.job,
+              birthDate: data.birthDate,
+              birthPlace: data.birthPlace,
+              address: data.address,
+            }
+          }
+        }
+      }
+    });
+  }
+
+  static async updateUserPassword(id: string, password: string) {
+    return await prisma.user.update({
+      where: {
+        id,
+      },
+      data: {
+        password,
+      }
+    })
+  }
 }
 
-export default AuthModel;
+export default UserModel;

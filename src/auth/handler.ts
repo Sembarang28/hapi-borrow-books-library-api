@@ -1,13 +1,12 @@
 import Hapi from '@hapi/hapi';
 import response from '../helpers/response';
 import authService from './service';
+import IAuth from '../interfaces/auth';
 
 class AuthHandler {
   async login(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
-      const { email, password } = request.payload as { email: string, password: string };
-
-      const login = await authService.login(email, password);
+      const login = await authService.login(request.payload as IAuth);
 
       return response(h, login.code, login.body, login.body.data?.refreshToken);
     } catch (error) {

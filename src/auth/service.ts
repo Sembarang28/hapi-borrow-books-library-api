@@ -1,31 +1,13 @@
 import prisma from "../config/databaseConnection";
 import bcrypt from 'bcrypt';
 import Jwt, { JwtPayload } from 'jsonwebtoken';
+import IAuth from "../interfaces/auth";
+import AuthModel from "../models/user";
 
 class AuthService {
-  async login(email: string, password: string) {
+  async login(auth: IAuth) {
     try {
-      const user = await prisma.user.findFirst({
-        where: {
-          email,
-        },
-        select: {
-          id: true,
-          email: true,
-          password: true,
-          role: true,
-          profile: {
-            select: {
-              id: true,
-              name: true,
-              job: true,
-              birthDate: true,
-              birthPlace: true,
-              address: true,
-            }
-          }
-        }
-      });
+      const user = await AuthModel.findUserByEmail(auth.email);
 
       if (!user) {
         return {
@@ -37,7 +19,7 @@ class AuthService {
         }
       }
 
-      if (!bcrypt.compareSync(password, user.password)) {
+      if (!bcrypt.compareSync(auth.password, user.password)) {
         return {
           body: {
             status: false,

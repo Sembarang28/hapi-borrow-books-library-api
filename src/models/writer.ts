@@ -24,6 +24,11 @@ class WriterModel {
     return await prisma.writers.findUnique({
       where: {
         id,
+      },
+      select: {
+        name: true,
+        birthDate: true,
+        birthPlace: true,
       }
     });
   }

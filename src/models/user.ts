@@ -2,6 +2,25 @@ import prisma from "../config/databaseConnection";
 import IUser from "../interfaces/user";
 
 class UserModel {
+  static async createUser(data: IUser, password: string) {
+    return await prisma.user.create({
+      data: {
+        email: data.email,
+        password: password,
+        role: 'user',
+        profile: {
+          create: {
+            name: data.name,
+            job: data.job,
+            birthDate: new Date(data.birthDate),
+            birthPlace: data.birthPlace,
+            address: data.address,
+          }
+        }
+      }
+    })
+  }
+
   static async findUserById(id: string) {
     return await prisma.user.findUnique({
       where: {

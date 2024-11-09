@@ -31,6 +31,32 @@ class AdminHandler {
     }
   }
 
+  async readAdminHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
+    try {
+      const { userId, role } = request.auth.credentials as { userId: string, role: string };
+
+      if (role !== 'admin') {
+        const resBody = {
+          status: false,
+          message: 'Forbidden'
+        }
+        return response(h, 403, resBody);
+      }
+
+      const readAdmin = await adminServices.readAdmin(userId);
+
+      return response(h, readAdmin.code, readAdmin.body);
+    } catch (error) {
+      console.log('read admin handler error: ', error);
+      const resBody = {
+        status: false,
+        message: 'read admin handler error',
+      }
+
+      return response(h, 500, resBody);
+    }
+  }
+
   async updatePasswordHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
       const { userId, role } = request.auth.credentials as { userId: string, role: string };

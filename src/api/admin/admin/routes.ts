@@ -19,6 +19,11 @@ async function adminRoutes(server: Server) {
       },
     },
     {
+      method: 'GET',
+      path: '/admin',
+      handler: adminHandler.readAdminHandler,
+    },
+    {
       method: 'PUT',
       path: '/admin',
       handler: adminHandler.updateAdminHandler,

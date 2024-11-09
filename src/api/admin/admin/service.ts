@@ -14,13 +14,56 @@ class AdminServices {
           message: 'data berhasil diubah!',
         },
         code: 200,
-      }
+      };
     } catch (error) {
       console.log('update admin service error: ', error);
       return {
         body: {
           status: false,
           message: 'update admin service error!',
+        },
+        code: 500,
+      }
+    }
+  }
+
+  async readAdmin(id: string) {
+    try {
+      const readAdmin = await UserModel.findUserById(id);
+
+      if (!readAdmin) {
+        return {
+          body: {
+            status: false,
+            message: 'Data tidak berhasil ditemukan!',
+          },
+          code: 404,
+        }
+      }
+
+      const data = {
+        email: readAdmin?.email,
+        name: readAdmin.profile?.name,
+        job: readAdmin.profile?.job,
+        birthDate: readAdmin.profile?.birthDate,
+        birthPlace: readAdmin.profile?.birthPlace,
+        address: readAdmin.profile?.address,
+      }
+
+      return {
+        body: {
+          status: true,
+          message: 'data berhasil ditemukan!',
+          data,
+        },
+        code: 200,
+      };
+    } catch (error) {
+      console.log('read admin service error: ', error);
+      return {
+        body: {
+          status: false,
+          message: 'read admin service error!',
         },
         code: 500,
       }

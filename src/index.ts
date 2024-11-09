@@ -10,6 +10,7 @@ import borrowRoutes from "./api/admin/borrows/routes";
 import borrowedBooksRoutes from "./api/admin/borrowedBooks/routes";
 import userRoutes from "./api/user/user/routes";
 import userBookRoutes from "./api/user/books/routes";
+import userBorrowRoutes from "./api/user/borrow/routes";
 dotenv.config();
 
 const port: number = Number(process.env.PORT) || 3000;
@@ -44,6 +45,7 @@ async function init() {
   await adminRoutes(server);
 
   await userBookRoutes(server);
+  await userBorrowRoutes(server);
   await userRoutes(server);
 
   await server.start();

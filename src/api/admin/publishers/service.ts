@@ -1,9 +1,18 @@
 import IPublisher from "../../../interfaces/publisher";
+import publisherModel from "../../../models/publisher";
 
 class PublisherService {
   async createPublisher(data: IPublisher) {
     try {
+      await publisherModel.createPublisher(data);
 
+      return {
+        body: {
+          status: true,
+          message: 'Data berhasil ditambah',
+        },
+        code: 201,
+      };
     } catch (error) {
       console.log('create publisher service error: ', error);
       return {
@@ -16,9 +25,28 @@ class PublisherService {
     }
   }
 
-  async readAllPublisher() {
+  async readAllPublisher(name: string, address: string, city: string) {
     try {
+      const readAllPublisher = await publisherModel.readAllPublisher(name, address, city);
 
+      if (!readAllPublisher[0]) {
+        return {
+          body: {
+            status: false,
+            message: 'Data tidak berhasil ditemukan!',
+          },
+          code: 404,
+        }
+      }
+
+      return {
+        body: {
+          status: true,
+          message: 'Data berhasil ditemukan',
+          data: readAllPublisher,
+        },
+        code: 200,
+      };
     } catch (error) {
       console.log('read all publisher service error: ', error);
       return {
@@ -31,9 +59,28 @@ class PublisherService {
     }
   }
 
-  async readPublisherById() {
+  async readPublisherById(id: number) {
     try {
+      const readPublisherById = await publisherModel.readPublisherById(id);
 
+      if (!readPublisherById) {
+        return {
+          body: {
+            status: false,
+            message: 'Data tidak berhasil ditemukan!',
+          },
+          code: 404,
+        }
+      }
+
+      return {
+        body: {
+          status: true,
+          message: 'Data berhasil ditemukan',
+          data: readPublisherById,
+        },
+        code: 200,
+      };
     } catch (error) {
       console.log('read publisher service error: ', error);
       return {
@@ -46,9 +93,17 @@ class PublisherService {
     }
   }
 
-  async updatePublisherById(data: IPublisher) {
+  async updatePublisherById(id: number, data: IPublisher) {
     try {
+      await publisherModel.updatePublisherById(id, data);
 
+      return {
+        body: {
+          status: true,
+          message: 'Data berhasil diubah',
+        },
+        code: 200,
+      };
     } catch (error) {
       console.log('update publisher service error: ', error);
       return {
@@ -61,9 +116,17 @@ class PublisherService {
     }
   }
 
-  async deletePublisherById() {
+  async deletePublisherById(id: number) {
     try {
+      await publisherModel.deletePublisherById(id);
 
+      return {
+        body: {
+          status: true,
+          message: 'Data berhasil dihapus',
+        },
+        code: 200,
+      };
     } catch (error) {
       console.log('delete publisher service error: ', error);
       return {

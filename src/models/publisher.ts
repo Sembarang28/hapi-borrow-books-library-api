@@ -1,4 +1,3 @@
-import { equal } from "joi";
 import prisma from "../config/databaseConnection";
 import IPublisher from "../interfaces/publisher";
 
@@ -19,7 +18,12 @@ class PublisherModel {
         name: { contains: name, mode: 'insensitive' },
         address: { contains: address, mode: 'insensitive' },
         city: { contains: city, mode: 'insensitive' },
-      }
+      },
+      select: {
+        name: true,
+        address: true,
+        city: true,
+      },
     });
   }
 
@@ -27,7 +31,12 @@ class PublisherModel {
     return await prisma.publisher.findUnique({
       where: {
         id,
-      }
+      },
+      select: {
+        name: true,
+        address: true,
+        city: true,
+      },
     });
   }
 

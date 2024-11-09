@@ -6,6 +6,16 @@ import IWriter from '../../../interfaces/writer';
 class WriterHandler {
   async createWriterHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
+      const { role } = request.auth.credentials as { userId: string, role: string };
+
+      if (role !== 'admin') {
+        const resBody = {
+          status: false,
+          message: 'Forbidden'
+        }
+        return response(h, 403, resBody);
+      }
+
       const createWriter = await writerService.createWriter(request.payload as IWriter);
 
       return response(h, createWriter.code, createWriter.body);
@@ -22,7 +32,17 @@ class WriterHandler {
 
   async readAllWriterHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
-      const { name } = request.query as { name: string };
+      const { role } = request.auth.credentials as { userId: string, role: string };
+
+      if (role !== 'admin') {
+        const resBody = {
+          status: false,
+          message: 'Forbidden'
+        }
+        return response(h, 403, resBody);
+      }
+
+      const { name } = request.query as { name: string } || "";
 
       const readAllWriter = await writerService.readAllWriter(name);
 
@@ -39,6 +59,16 @@ class WriterHandler {
   }
   async readWriterByIdHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
+      const { role } = request.auth.credentials as { userId: string, role: string };
+
+      if (role !== 'admin') {
+        const resBody = {
+          status: false,
+          message: 'Forbidden'
+        }
+        return response(h, 403, resBody);
+      }
+
       const { id } = request.params as { id: string };
 
       const readWriter = await writerService.readWriterById(Number(id));
@@ -56,6 +86,16 @@ class WriterHandler {
   }
   async updateWriterHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
+      const { role } = request.auth.credentials as { userId: string, role: string };
+
+      if (role !== 'admin') {
+        const resBody = {
+          status: false,
+          message: 'Forbidden'
+        }
+        return response(h, 403, resBody);
+      }
+
       const { id } = request.params as { id: string };
 
       const updateWriter = await writerService.updateWriter(Number(id), request.payload as IWriter);
@@ -73,6 +113,16 @@ class WriterHandler {
   }
   async deleteWriterHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
+      const { role } = request.auth.credentials as { userId: string, role: string };
+
+      if (role !== 'admin') {
+        const resBody = {
+          status: false,
+          message: 'Forbidden'
+        }
+        return response(h, 403, resBody);
+      }
+
       const { id } = request.params as { id: string };
 
       const deleteWriter = await writerService.deleteWriter(Number(id));

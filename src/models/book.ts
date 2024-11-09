@@ -20,7 +20,22 @@ class BookModel {
         year,
         publisher: { name: { contains: publisherName, mode: 'insensitive' } },
         writers: { name: { contains: writerName, mode: 'insensitive' } },
-      }
+      },
+      select: {
+        writers: {
+          select: {
+            name: true,
+          }
+        },
+        publisher: {
+          select: {
+            name: true,
+            city: true,
+          }
+        },
+        title: true,
+        year: true,
+      },
     });
   }
 
@@ -28,6 +43,21 @@ class BookModel {
     return await prisma.books.findUnique({
       where: {
         id,
+      },
+      select: {
+        writers: {
+          select: {
+            name: true,
+          }
+        },
+        publisher: {
+          select: {
+            name: true,
+            city: true,
+          }
+        },
+        title: true,
+        year: true,
       },
     });
   }

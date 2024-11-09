@@ -6,7 +6,7 @@ async function publisherRoutes(server: Server) {
   server.route([
     {
       method: 'POST',
-      path: '/publisher',
+      path: '/admin/publisher',
       handler: publisherHandler.createPublisherHandler,
       options: {
         validate: {
@@ -20,18 +20,18 @@ async function publisherRoutes(server: Server) {
     },
     {
       method: 'GET',
-      path: '/publisher',
+      path: '/admin/publisher',
       handler: publisherHandler.readAllPublisherHandler,
 
     },
     {
       method: 'GET',
-      path: '/publisher/{id}',
+      path: '/admin/publisher/{id}',
       handler: publisherHandler.readPublisherByIdHandler,
     },
     {
       method: 'PUT',
-      path: '/publisher/{id}',
+      path: '/admin/publisher/{id}',
       handler: publisherHandler.updatePublisherByIdHandler,
       options: {
         validate: {
@@ -45,7 +45,7 @@ async function publisherRoutes(server: Server) {
     },
     {
       method: 'DELETE',
-      path: '/publisher/{id}',
+      path: '/admin/publisher/{id}',
       handler: publisherHandler.deletePublisherByIdHandler,
     },
   ])

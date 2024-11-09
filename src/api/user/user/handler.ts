@@ -9,7 +9,7 @@ class UserHandler {
     try {
       const { role } = request.auth.credentials as { userId: string, role: string };
 
-      if (role !== 'admin') {
+      if (role !== 'user') {
         const resBody = {
           status: false,
           message: 'Forbidden'
@@ -62,7 +62,7 @@ class UserHandler {
     try {
       const { userId, role } = request.auth.credentials as { userId: string, role: string };
 
-      if (role !== 'admin') {
+      if (role !== 'user') {
         const resBody = {
           status: false,
           message: 'Forbidden'
@@ -88,7 +88,7 @@ class UserHandler {
     try {
       const { userId, role } = request.auth.credentials as { userId: string, role: string };
 
-      if (role !== 'admin') {
+      if (role !== 'user') {
         const resBody = {
           status: false,
           message: 'Forbidden'
@@ -114,7 +114,7 @@ class UserHandler {
     try {
       const { userId, role } = request.auth.credentials as { userId: string, role: string };
 
-      if (role !== 'admin') {
+      if (role !== 'user') {
         const resBody = {
           status: false,
           message: 'Forbidden'
@@ -140,7 +140,7 @@ class UserHandler {
     try {
       const { userId, role } = request.auth.credentials as { userId: string, role: string };
 
-      if (role !== 'admin') {
+      if (role !== 'user') {
         const resBody = {
           status: false,
           message: 'Forbidden'

@@ -21,8 +21,13 @@ class BorrowedBooksModel {
     return await prisma.borrowedBooks.findUnique({
       where: {
         id,
+      },
+      select: {
+        id: true,
+        borrowId: true,
+        bookId: true,
       }
-    })
+    });
   }
 
   static async updateBorrowedBooksById(id: string, data: IBorrowedBooks) {

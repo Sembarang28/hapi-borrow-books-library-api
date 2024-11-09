@@ -7,6 +7,7 @@ import writerRoutes from "./api/admin/writers/routes";
 import publisherRoutes from "./api/admin/publishers/routes";
 import bookRoutes from "./api/admin/books/routes";
 import borrowRoutes from "./api/admin/borrows/routes";
+import borrowedBooksRoutes from "./api/admin/borrowedBooks/routes";
 dotenv.config();
 
 const port: number = Number(process.env.PORT) || 3000;
@@ -33,11 +34,12 @@ async function init() {
   await jwtConfig(server);
 
   await authRoutes(server);
-  await adminRoutes(server);
   await writerRoutes(server);
   await publisherRoutes(server);
   await bookRoutes(server);
+  await borrowedBooksRoutes(server);
   await borrowRoutes(server);
+  await adminRoutes(server);
 
   await server.start();
   console.log(`Server running on ${server.info.uri}`);

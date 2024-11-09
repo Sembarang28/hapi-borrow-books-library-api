@@ -42,7 +42,7 @@ class AdminServices {
       }
 
       const data = {
-        email: readAdmin?.email,
+        email: readAdmin.email,
         name: readAdmin.profile?.name,
         job: readAdmin.profile?.job,
         birthDate: readAdmin.profile?.birthDate,

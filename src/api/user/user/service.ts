@@ -1,3 +1,4 @@
+import { Password } from "../../../interfaces/auth";
 import IUser from "../../../interfaces/user";
 import userModel from "../../../models/user";
 import bcrypt from 'bcrypt';
@@ -15,7 +16,7 @@ class UserService {
           message: 'data berhasil ditambah!',
         },
         code: 201,
-      }
+      };
     } catch (error) {
       console.log('create user service error: ', error);
       return {
@@ -28,9 +29,37 @@ class UserService {
     }
   }
 
-  async readUserService() {
+  async readUserService(id: string) {
     try {
+      const readUser = await userModel.findUserById(id);
 
+      if (!readUser) {
+        return {
+          body: {
+            status: false,
+            message: 'Data tidak berhasil ditemukan!',
+          },
+          code: 404,
+        }
+      }
+
+      const data = {
+        email: readUser.email,
+        name: readUser.profile?.name,
+        job: readUser.profile?.job,
+        birthDate: readUser.profile?.birthDate,
+        birthPlace: readUser.profile?.birthPlace,
+        address: readUser.profile?.address,
+      }
+
+      return {
+        body: {
+          status: true,
+          message: 'data berhasil ditemukan!',
+          data,
+        },
+        code: 200,
+      };
     } catch (error) {
       console.log('read user service error: ', error);
       return {
@@ -43,9 +72,17 @@ class UserService {
     }
   }
 
-  async updateUserService() {
+  async updateUserService(id: string, data: IUser) {
     try {
+      await userModel.updateUser(id, data);
 
+      return {
+        body: {
+          status: true,
+          message: 'data berhasil diubah!',
+        },
+        code: 200,
+      };
     } catch (error) {
       console.log('update user service error: ', error);
       return {
@@ -58,9 +95,74 @@ class UserService {
     }
   }
 
-  async deleteUserService() {
+  async updatePassword(id: string, password: Password) {
     try {
+      if (password.newPassword !== password.confirmPassword) {
+        return {
+          body: {
+            status: false,
+            message: 'Password baru dan password konfirmasi tidak sama!',
+          },
+          code: 400
+        }
+      }
 
+      const user = await userModel.findUserById(id);
+
+      if (!user) {
+        return {
+          body: {
+            status: false,
+            message: 'User not found!',
+          },
+          code: 404,
+        }
+      }
+
+      if (!bcrypt.compareSync(password.oldPassword, user.password)) {
+        return {
+          body: {
+            status: false,
+            message: 'Password lama salah!'
+          },
+          code: 400
+        }
+      }
+
+      const hashPassword = bcrypt.hashSync(password.newPassword, 10);
+
+      await userModel.updateUserPassword(id, hashPassword);
+
+      return {
+        body: {
+          status: true,
+          message: 'Password berhasil diubah!',
+        },
+        code: 200
+      };
+    } catch (error) {
+      console.log('password service error: ', error);
+      return {
+        body: {
+          status: false,
+          message: 'password service error!',
+        },
+        code: 500,
+      }
+    }
+  }
+
+  async deleteUserService(id: string) {
+    try {
+      await userModel.deleteUser(id);
+
+      return {
+        body: {
+          status: true,
+          message: 'data berhasil dihapus!',
+        },
+        code: 200,
+      };
     } catch (error) {
       console.log('delete user service error: ', error);
       return {

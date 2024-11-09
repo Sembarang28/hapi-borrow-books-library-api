@@ -50,3 +50,5 @@ async function publisherRoutes(server: Server) {
     },
   ])
 }
+
+export default publisherRoutes;

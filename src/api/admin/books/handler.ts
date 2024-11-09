@@ -6,7 +6,7 @@ import IBook from "../../../interfaces/book";
 class BookHandler {
   async createBookHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
-      const { role } = request.auth.credentials as { userId: string, role: string };
+      const { role } = request.auth.credentials as { role: string };
 
       if (role !== 'admin') {
         const resBody = {
@@ -32,7 +32,7 @@ class BookHandler {
 
   async readAllBookHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
-      const { role } = request.auth.credentials as { userId: string, role: string };
+      const { role } = request.auth.credentials as { role: string };
 
       if (role !== 'admin') {
         const resBody = {
@@ -63,7 +63,7 @@ class BookHandler {
 
   async readBookByIdHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
-      const { role } = request.auth.credentials as { userId: string, role: string };
+      const { role } = request.auth.credentials as { role: string };
 
       if (role !== 'admin') {
         const resBody = {
@@ -91,7 +91,7 @@ class BookHandler {
 
   async updateBookHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
-      const { role } = request.auth.credentials as { userId: string, role: string };
+      const { role } = request.auth.credentials as { role: string };
 
       if (role !== 'admin') {
         const resBody = {
@@ -119,7 +119,7 @@ class BookHandler {
 
   async deleteBookHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
-      const { role } = request.auth.credentials as { userId: string, role: string };
+      const { role } = request.auth.credentials as { role: string };
 
       if (role !== 'admin') {
         const resBody = {

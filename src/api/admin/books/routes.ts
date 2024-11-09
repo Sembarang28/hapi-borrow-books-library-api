@@ -50,7 +50,7 @@ async function bookRoutes(server: Server) {
       path: '/admin/book/{id}',
       handler: bookHandler.deleteBookHandler,
     },
-  ])
+  ]);
 }
 
 export default bookRoutes;

@@ -6,7 +6,7 @@ import IWriter from '../../../interfaces/writer';
 class WriterHandler {
   async createWriterHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
-      const { role } = request.auth.credentials as { userId: string, role: string };
+      const { role } = request.auth.credentials as { role: string };
 
       if (role !== 'admin') {
         const resBody = {
@@ -32,7 +32,7 @@ class WriterHandler {
 
   async readAllWriterHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
-      const { role } = request.auth.credentials as { userId: string, role: string };
+      const { role } = request.auth.credentials as { role: string };
 
       if (role !== 'admin') {
         const resBody = {
@@ -59,7 +59,7 @@ class WriterHandler {
   }
   async readWriterByIdHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
-      const { role } = request.auth.credentials as { userId: string, role: string };
+      const { role } = request.auth.credentials as { role: string };
 
       if (role !== 'admin') {
         const resBody = {
@@ -86,7 +86,7 @@ class WriterHandler {
   }
   async updateWriterHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
-      const { role } = request.auth.credentials as { userId: string, role: string };
+      const { role } = request.auth.credentials as { role: string };
 
       if (role !== 'admin') {
         const resBody = {
@@ -113,7 +113,7 @@ class WriterHandler {
   }
   async deleteWriterHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
-      const { role } = request.auth.credentials as { userId: string, role: string };
+      const { role } = request.auth.credentials as { role: string };
 
       if (role !== 'admin') {
         const resBody = {

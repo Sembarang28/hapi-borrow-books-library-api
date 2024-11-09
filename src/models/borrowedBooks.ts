@@ -11,6 +11,12 @@ class BorrowedBooksModel {
     });
   }
 
+  static async createManyBorrowedBooks(data: IBorrowedBooks[]) {
+    return await prisma.borrowedBooks.createMany({
+      data,
+    });
+  }
+
   static async readBorrowedBooksById(id: string) {
     return await prisma.borrowedBooks.findUnique({
       where: {

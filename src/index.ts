@@ -6,6 +6,7 @@ import adminRoutes from "./api/admin/admin/routes";
 import writerRoutes from "./api/admin/writers/routes";
 import publisherRoutes from "./api/admin/publishers/routes";
 import bookRoutes from "./api/admin/books/routes";
+import borrowRoutes from "./api/admin/borrows/routes";
 dotenv.config();
 
 const port: number = Number(process.env.PORT) || 3000;
@@ -36,6 +37,7 @@ async function init() {
   await writerRoutes(server);
   await publisherRoutes(server);
   await bookRoutes(server);
+  await borrowRoutes(server);
 
   await server.start();
   console.log(`Server running on ${server.info.uri}`);

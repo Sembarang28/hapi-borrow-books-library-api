@@ -1,20 +1,14 @@
 import prisma from "../config/databaseConnection";
 import IBorrow from "../interfaces/borrow";
-import IBorrowedBooks from "../interfaces/borrowedBooks";
 
 class BorrowModel {
-  static async createBorrow(data: IBorrow, borrowBook: IBorrowedBooks[]) {
+  static async createBorrow(data: IBorrow) {
     return await prisma.borrow.create({
       data: {
         userId: data.userId,
         status: data.status,
-        borrowDate: data.borrowDate,
-        returnDate: data.returnDate,
-        borrowedBooks: {
-          createMany: {
-            data: borrowBook,
-          }
-        }
+        borrowDate: new Date(data.borrowDate),
+        returnDate: new Date(data.returnDate),
       }
     })
   }
@@ -39,7 +33,27 @@ class BorrowModel {
         status: true,
         borrowDate: true,
         returnDate: true,
-        borrowedBooks: true,
+        borrowedBooks: {
+          select: {
+            books: {
+              select: {
+                title: true,
+                year: true,
+                writers: {
+                  select: {
+                    name: true,
+                  },
+                },
+                publisher: {
+                  select: {
+                    name: true,
+                    city: true,
+                  },
+                },
+              },
+            },
+          },
+        },
       }
     })
   }
@@ -63,7 +77,27 @@ class BorrowModel {
         status: true,
         borrowDate: true,
         returnDate: true,
-        borrowedBooks: true,
+        borrowedBooks: {
+          select: {
+            books: {
+              select: {
+                title: true,
+                year: true,
+                writers: {
+                  select: {
+                    name: true,
+                  },
+                },
+                publisher: {
+                  select: {
+                    name: true,
+                    city: true,
+                  },
+                },
+              },
+            },
+          },
+        },
       }
     });
   }
@@ -76,8 +110,8 @@ class BorrowModel {
       data: {
         userId: data.userId,
         status: data.status,
-        borrowDate: data.borrowDate,
-        returnDate: data.returnDate,
+        borrowDate: new Date(data.borrowDate),
+        returnDate: new Date(data.returnDate),
       }
     })
   }

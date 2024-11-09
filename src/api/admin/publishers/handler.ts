@@ -6,7 +6,7 @@ import IPublisher from '../../../interfaces/publisher';
 class PublisherHandler {
   async createPublisherHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
-      const { role } = request.auth.credentials as { userId: string, role: string };
+      const { role } = request.auth.credentials as { role: string };
 
       if (role !== 'admin') {
         const resBody = {
@@ -32,7 +32,7 @@ class PublisherHandler {
 
   async readAllPublisherHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
-      const { role } = request.auth.credentials as { userId: string, role: string };
+      const { role } = request.auth.credentials as { role: string };
 
 
       if (role !== 'admin') {
@@ -63,7 +63,7 @@ class PublisherHandler {
 
   async readPublisherByIdHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
-      const { role } = request.auth.credentials as { userId: string, role: string };
+      const { role } = request.auth.credentials as { role: string };
 
       if (role !== 'admin') {
         const resBody = {
@@ -91,7 +91,7 @@ class PublisherHandler {
 
   async updatePublisherByIdHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
-      const { role } = request.auth.credentials as { userId: string, role: string };
+      const { role } = request.auth.credentials as { role: string };
 
       if (role !== 'admin') {
         const resBody = {
@@ -119,7 +119,7 @@ class PublisherHandler {
 
   async deletePublisherByIdHandler(request: Hapi.Request, h: Hapi.ResponseToolkit) {
     try {
-      const { role } = request.auth.credentials as { userId: string, role: string };
+      const { role } = request.auth.credentials as { role: string };
 
       if (role !== 'admin') {
         const resBody = {

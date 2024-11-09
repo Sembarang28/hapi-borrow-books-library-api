@@ -123,6 +123,7 @@ class BorrowHandler {
       const { id } = request.params as { id: string };
 
       const updateBorrowById = await borrowService.updateBorrowService(id, request.payload as IBorrow);
+
       return response(h, updateBorrowById.code, updateBorrowById.body);
     } catch (error) {
       console.log('update borrow handler error: ', error);

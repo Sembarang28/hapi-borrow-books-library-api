@@ -58,6 +58,51 @@ class BorrowModel {
     })
   }
 
+  static async readAllBorrowByUserId(userId: string, status: string) {
+    return await prisma.borrow.findMany({
+      where: {
+        status,
+        userId,
+      },
+      select: {
+        user: {
+          select: {
+            profile: {
+              select: {
+                name: true,
+                address: true,
+              },
+            },
+          },
+        },
+        status: true,
+        borrowDate: true,
+        returnDate: true,
+        borrowedBooks: {
+          select: {
+            books: {
+              select: {
+                title: true,
+                year: true,
+                writers: {
+                  select: {
+                    name: true,
+                  },
+                },
+                publisher: {
+                  select: {
+                    name: true,
+                    city: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    })
+  }
+
   static async readBorrowById(id: string) {
     return await prisma.borrow.findUnique({
       where: {

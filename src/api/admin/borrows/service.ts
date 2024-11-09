@@ -8,7 +8,7 @@ class BorrowsService {
     try {
       const createBorrow = await borrowModel.createBorrow(data);
 
-      const borrowedBooks = books.map((book) => ({
+      const borrowedBooks: IBorrowedBooks[] = books.map((book) => ({
         borrowId: createBorrow.id,
         bookId: book,
       }));

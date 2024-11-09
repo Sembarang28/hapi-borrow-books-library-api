@@ -10,13 +10,13 @@ async function adminRoutes(server: Server) {
       handler: adminHandler.updatePasswordHandler,
       options: {
         validate: {
-          payload: {
+          payload: Joi.object({
             oldPassword: Joi.string().required(),
             newPassword: Joi.string().required(),
             confirmPassword: Joi.string().required(),
-          }
-        }
-      }
+          }),
+        },
+      },
     },
     {
       method: 'PUT',
@@ -24,16 +24,16 @@ async function adminRoutes(server: Server) {
       handler: adminHandler.updateAdminHandler,
       options: {
         validate: {
-          payload: {
+          payload: Joi.object({
             email: Joi.string().required(),
             name: Joi.string().required(),
             job: Joi.string().required(),
             birthDate: Joi.string().required(),
             birthPlace: Joi.string().required(),
             address: Joi.string().required(),
-          }
-        }
-      }
+          }),
+        },
+      },
     },
   ])
 }

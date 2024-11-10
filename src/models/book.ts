@@ -22,6 +22,7 @@ class BookModel {
         writers: { name: { contains: writerName, mode: 'insensitive' } },
       },
       select: {
+        id: true,
         writers: {
           select: {
             name: true,
@@ -45,6 +46,7 @@ class BookModel {
         id,
       },
       select: {
+        id: true,
         writers: {
           select: {
             name: true,

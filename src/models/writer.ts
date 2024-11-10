@@ -31,6 +31,7 @@ class WriterModel {
         id,
       },
       select: {
+        id: true,
         name: true,
         birthDate: true,
         birthPlace: true,

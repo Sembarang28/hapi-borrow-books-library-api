@@ -26,7 +26,7 @@ async function writerRoutes(server: Server) {
     {
       method: 'GET',
       path: '/admin/writer/{id}',
-      handler: writerHandler.readAllWriterHandler,
+      handler: writerHandler.readWriterByIdHandler,
     },
     {
       method: 'PUT',

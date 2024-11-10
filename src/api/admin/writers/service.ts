@@ -95,6 +95,18 @@ class WriterService {
 
   async updateWriter(id: number, data: IWriter) {
     try {
+      const readWriterById = await writerModel.readWriterById(id);
+
+      if (!readWriterById) {
+        return {
+          body: {
+            status: false,
+            message: 'Data tidak berhasil ditemukan!',
+          },
+          code: 404,
+        }
+      }
+
       await writerModel.updateWriterById(id, data);
 
       return {
@@ -118,6 +130,18 @@ class WriterService {
 
   async deleteWriter(id: number) {
     try {
+      const readWriterById = await writerModel.readWriterById(id);
+
+      if (!readWriterById) {
+        return {
+          body: {
+            status: false,
+            message: 'Data tidak berhasil ditemukan!',
+          },
+          code: 404,
+        }
+      }
+
       await writerModel.deleteWriterById(id);
 
       return {

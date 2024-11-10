@@ -20,6 +20,7 @@ class PublisherModel {
         city: { contains: city, mode: 'insensitive' },
       },
       select: {
+        id: true,
         name: true,
         address: true,
         city: true,
@@ -33,6 +34,7 @@ class PublisherModel {
         id,
       },
       select: {
+        id: true,
         name: true,
         address: true,
         city: true,

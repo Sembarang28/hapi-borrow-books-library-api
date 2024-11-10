@@ -18,6 +18,7 @@ class WriterModel {
         name: { contains: name, mode: 'insensitive' },
       },
       select: {
+        id: true,
         name: true,
         birthDate: true,
         birthPlace: true,

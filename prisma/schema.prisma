@@ -30,7 +30,7 @@ model User {
 model Profile {
   id         String   @id @default(dbgenerated("gen_random_uuid()"))
   userId     String   @unique
-  user       User     @relation(fields: [userId], references: [id])
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   name       String   @db.VarChar(100)
   job        String   @db.VarChar(100)
   birthDate  DateTime @db.Date
@@ -68,9 +68,9 @@ model Publisher {
 
 model Books {
   id            String          @id @default(dbgenerated("gen_random_uuid()"))
-  publisher     Publisher       @relation(fields: [publisherId], references: [id])
+  publisher     Publisher       @relation(fields: [publisherId], references: [id], onDelete: Cascade)
   publisherId   Int
-  writers       Writers         @relation(fields: [writerId], references: [id])
+  writers       Writers         @relation(fields: [writerId], references: [id], onDelete: Cascade)
   writerId      Int
   title         String          @db.VarChar(255)
   year          String          @db.VarChar(4)
@@ -83,9 +83,9 @@ model Books {
 
 model BorrowedBooks {
   id        String   @id @default(dbgenerated("gen_random_uuid()"))
-  borrow    Borrow   @relation(fields: [borrowId], references: [id])
+  borrow    Borrow   @relation(fields: [borrowId], references: [id], onDelete: Cascade)
   borrowId  String
-  books     Books    @relation(fields: [bookId], references: [id])
+  books     Books    @relation(fields: [bookId], references: [id], onDelete: Cascade)
   bookId    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -95,7 +95,7 @@ model BorrowedBooks {
 
 model Borrow {
   id            String          @id @default(dbgenerated("gen_random_uuid()"))
-  user          User            @relation(fields: [userId], references: [id])
+  user          User            @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId        String
   status        String          @db.VarChar(100)
   borrowDate    DateTime        @db.Date

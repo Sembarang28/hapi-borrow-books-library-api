@@ -21,12 +21,38 @@ class UserModel {
     })
   }
 
+  static async readAllUser(search: string) {
+    return await prisma.user.findMany({
+      where: {
+        NOT: {
+          role: "admin",
+        },
+        OR: [
+          { email: { contains: search, mode: 'insensitive' } },
+          {
+            profile: {
+              name: { contains: search, mode: 'insensitive' },
+              job: { contains: search, mode: 'insensitive' },
+              address: { contains: search, mode: 'insensitive' },
+            }
+          }
+        ]
+      },
+      select: {
+        id: true,
+        email: true,
+        profile: true,
+      }
+    })
+  }
+
   static async findUserById(id: string) {
     return await prisma.user.findUnique({
       where: {
         id,
       },
       select: {
+        id: true,
         email: true,
         password: true,
         role: true,

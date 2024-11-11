@@ -63,7 +63,7 @@ async function userRoutes(server: Server) {
       path: '/user',
       handler: userHandler.deleteUserHandler,
     },
-  ])
+  ]);
 }
 
 export default userRoutes;

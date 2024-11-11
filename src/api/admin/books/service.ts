@@ -40,6 +40,7 @@ class BookService {
       }
 
       const data = readAllBook.map((book) => ({
+        id: book.id,
         title: book.title,
         year: book.year,
         writerName: book.writers.name,
@@ -82,6 +83,7 @@ class BookService {
       }
 
       const data = {
+        id: readBookById.id,
         title: readBookById.title,
         year: readBookById.year,
         writerName: readBookById.writers.name,

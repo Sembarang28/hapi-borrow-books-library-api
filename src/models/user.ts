@@ -115,7 +115,7 @@ class UserModel {
       data: {
         password,
       }
-    })
+    });
   }
 
   static async deleteUser(id: string) {

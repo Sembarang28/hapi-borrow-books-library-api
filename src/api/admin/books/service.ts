@@ -46,7 +46,7 @@ class BookService {
         writerName: book.writers.name,
         publisherName: book.publisher.name,
         publisherCity: book.publisher.city
-      }))
+      }));
 
       return {
         body: {

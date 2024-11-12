@@ -43,6 +43,7 @@ class BorrowedBooksService {
         body: {
           status: true,
           message: 'Data berhasil ditemukan',
+          data: readBorrowedBooksById,
         },
         code: 200,
       };

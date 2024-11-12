@@ -30,14 +30,7 @@ class BorrowHandler {
         books: string[],
       }
 
-      const borrow: IBorrow = {
-        userId,
-        status,
-        borrowDate,
-        returnDate,
-      }
-
-      const creatBorrow = await borrowService.createBorrowService(borrow, books);
+      const creatBorrow = await borrowService.createBorrowService(userId, books);
 
       return response(h, creatBorrow.code, creatBorrow.body);
     } catch (error) {

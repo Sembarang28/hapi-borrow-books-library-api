@@ -7,10 +7,10 @@ class BorrowModel {
       data: {
         userId: data.userId,
         status: data.status,
-        borrowDate: new Date(data.borrowDate),
-        returnDate: new Date(data.returnDate),
-      }
-    })
+        borrowDate: data.borrowDate,
+        returnDate: data.returnDate,
+      },
+    });
   }
 
   static async readAllBorrow(name: string, status: string) {

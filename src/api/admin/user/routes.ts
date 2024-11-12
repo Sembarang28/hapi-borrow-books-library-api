@@ -34,7 +34,7 @@ async function userRoutes(server: Server) {
     },
     {
       method: 'PUT',
-      path: '/admin/user/pass',
+      path: '/admin/user/pass/{id}',
       handler: userHandler.updateUserPasswordById,
       options: {
         validate: {
@@ -46,7 +46,7 @@ async function userRoutes(server: Server) {
     },
     {
       method: 'PUT',
-      path: '/admin/user',
+      path: '/admin/user/{id}',
       handler: userHandler.updateUserById,
       options: {
         validate: {

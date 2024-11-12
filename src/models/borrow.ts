@@ -37,6 +37,7 @@ class BorrowModel {
         returnDate: true,
         borrowedBooks: {
           select: {
+            id: true,
             books: {
               select: {
                 id: true,
@@ -85,6 +86,7 @@ class BorrowModel {
         returnDate: true,
         borrowedBooks: {
           select: {
+            id: true,
             books: {
               select: {
                 id: true,
@@ -132,6 +134,7 @@ class BorrowModel {
         returnDate: true,
         borrowedBooks: {
           select: {
+            id: true,
             books: {
               select: {
                 id: true,

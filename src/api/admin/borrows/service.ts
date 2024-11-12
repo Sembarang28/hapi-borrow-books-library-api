@@ -63,7 +63,8 @@ class BorrowsService {
         const books = [];
         for (const book of borrow.borrowedBooks) {
           const bookObject = {
-            id: book.books.id,
+            borrowBookId: book.id,
+            bookId: book.books.id,
             title: book.books.title,
             year: book.books.year,
             writerName: book.books.writers.name,
@@ -126,7 +127,8 @@ class BorrowsService {
 
       for (const book of readBorrowById.borrowedBooks) {
         const bookObject = {
-          id: book.books.id,
+          borrowBookId: book.id,
+          bookId: book.books.id,
           title: book.books.title,
           year: book.books.year,
           writerName: book.books.writers.name,

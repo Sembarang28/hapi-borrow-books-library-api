@@ -18,15 +18,9 @@ class BorrowHandler {
 
       const {
         userId,
-        status,
-        borrowDate,
-        returnDate,
         books,
       } = request.payload as {
         userId: string,
-        status: string,
-        borrowDate: string,
-        returnDate: string,
         books: string[],
       }
 
@@ -115,7 +109,9 @@ class BorrowHandler {
 
       const { id } = request.params as { id: string };
 
-      const updateBorrowById = await borrowService.updateBorrowService(id, request.payload as IBorrow);
+      const { status } = request.payload as { status: string };
+
+      const updateBorrowById = await borrowService.updateBorrowService(id, status);
 
       return response(h, updateBorrowById.code, updateBorrowById.body);
     } catch (error) {

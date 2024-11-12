@@ -12,9 +12,6 @@ async function borrowRoutes(server: Server) {
         validate: {
           payload: Joi.object({
             userId: Joi.string().required(),
-            status: Joi.string().required(),
-            borrowId: Joi.number().required(),
-            returnDate: Joi.number().required(),
             books: Joi.array().items(Joi.string()).required(),
           }),
         }
@@ -37,10 +34,7 @@ async function borrowRoutes(server: Server) {
       options: {
         validate: {
           payload: Joi.object({
-            userId: Joi.string().required(),
             status: Joi.string().required(),
-            borrowId: Joi.number().required(),
-            returnDate: Joi.number().required(),
           }),
         }
       }

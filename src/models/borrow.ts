@@ -7,8 +7,8 @@ class BorrowModel {
       data: {
         userId: data.userId,
         status: data.status,
-        borrowDate: data.borrowDate,
-        returnDate: data.returnDate,
+        borrowDate: new Date(data.borrowDate),
+        returnDate: new Date(data.returnDate),
       },
     });
   }
@@ -20,8 +20,10 @@ class BorrowModel {
         user: { profile: { name: { contains: name, mode: 'insensitive' } } },
       },
       select: {
+        id: true,
         user: {
           select: {
+            id: true,
             profile: {
               select: {
                 name: true,
@@ -37,6 +39,7 @@ class BorrowModel {
           select: {
             books: {
               select: {
+                id: true,
                 title: true,
                 year: true,
                 writers: {
@@ -65,8 +68,10 @@ class BorrowModel {
         userId,
       },
       select: {
+        id: true,
         user: {
           select: {
+            id: true,
             profile: {
               select: {
                 name: true,
@@ -82,6 +87,7 @@ class BorrowModel {
           select: {
             books: {
               select: {
+                id: true,
                 title: true,
                 year: true,
                 writers: {
@@ -99,7 +105,7 @@ class BorrowModel {
             },
           },
         },
-      },
+      }
     })
   }
 
@@ -109,8 +115,10 @@ class BorrowModel {
         id,
       },
       select: {
+        id: true,
         user: {
           select: {
+            id: true,
             profile: {
               select: {
                 name: true,
@@ -126,6 +134,7 @@ class BorrowModel {
           select: {
             books: {
               select: {
+                id: true,
                 title: true,
                 year: true,
                 writers: {
@@ -147,16 +156,13 @@ class BorrowModel {
     });
   }
 
-  static async updateBorrowById(id: string, data: IBorrow) {
+  static async updateBorrowById(id: string, status: string) {
     return await prisma.borrow.update({
       where: {
         id,
       },
       data: {
-        userId: data.userId,
-        status: data.status,
-        borrowDate: new Date(data.borrowDate),
-        returnDate: new Date(data.returnDate),
+        status,
       }
     })
   }

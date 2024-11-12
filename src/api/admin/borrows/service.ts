@@ -9,7 +9,6 @@ class BorrowsService {
       const currentDate = new Date();
       const returnDate = new Date(currentDate);
       returnDate.setDate(currentDate.getDate() + 7);
-      console.log(currentDate, returnDate);
       const data: IBorrow = {
         userId,
         status: "borrow",
@@ -64,6 +63,7 @@ class BorrowsService {
         const books = [];
         for (const book of borrow.borrowedBooks) {
           const bookObject = {
+            id: book.books.id,
             title: book.books.title,
             year: book.books.year,
             writerName: book.books.writers.name,
@@ -75,6 +75,8 @@ class BorrowsService {
         }
 
         const borrowObject = {
+          id: borrow.id,
+          userId: borrow.user.id,
           name: borrow.user.profile?.name,
           address: borrow.user.profile?.address,
           status: borrow.status,
@@ -124,6 +126,7 @@ class BorrowsService {
 
       for (const book of readBorrowById.borrowedBooks) {
         const bookObject = {
+          id: book.books.id,
           title: book.books.title,
           year: book.books.year,
           writerName: book.books.writers.name,
@@ -163,9 +166,9 @@ class BorrowsService {
     }
   }
 
-  async updateBorrowService(id: string, data: IBorrow) {
+  async updateBorrowService(id: string, status: string) {
     try {
-      await borrowModel.updateBorrowById(id, data);
+      await borrowModel.updateBorrowById(id, status);
 
       return {
         body: {
@@ -193,7 +196,7 @@ class BorrowsService {
       return {
         body: {
           status: true,
-          message: 'Data berhasil diubah',
+          message: 'Data berhasil dihapus',
         },
         code: 200,
       };

@@ -4,8 +4,17 @@ import borrowModel from "../../../models/borrow";
 import borrowedBooksModel from "../../../models/borrowedBooks";
 
 class UserBorrowService {
-  async createBorrowService(data: IBorrow, books: string[]) {
+  async createBorrowService(userId: string, books: string[]) {
     try {
+      const currentDate = new Date();
+      const returnDate = new Date(currentDate);
+      returnDate.setDate(currentDate.getDate() + 7);
+      const data: IBorrow = {
+        userId,
+        status: "borrow",
+        borrowDate: currentDate.toISOString(),
+        returnDate: returnDate.toISOString(),
+      }
       const createBorrow = await borrowModel.createBorrow(data);
 
       const borrowedBooks: IBorrowedBooks[] = books.map((book) => ({

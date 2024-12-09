@@ -17,26 +17,13 @@ class UserBorrowHandler {
       }
 
       const {
-        status,
-        borrowDate,
-        returnDate,
         books,
       } = request.payload as {
         userId: string,
-        status: string,
-        borrowDate: string,
-        returnDate: string,
         books: string[],
       }
 
-      const borrow: IBorrow = {
-        userId,
-        status,
-        borrowDate,
-        returnDate,
-      }
-
-      const creatBorrow = await borrowService.createBorrowService(borrow, books);
+      const creatBorrow = await borrowService.createBorrowService(userId, books);
 
       return response(h, creatBorrow.code, creatBorrow.body);
     } catch (error) {

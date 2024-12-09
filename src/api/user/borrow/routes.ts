@@ -11,9 +11,6 @@ async function userBorrowRoutes(server: Server) {
       options: {
         validate: {
           payload: Joi.object({
-            status: Joi.string().required(),
-            borrowId: Joi.number().required(),
-            returnDate: Joi.number().required(),
             books: Joi.array().items(Joi.string()).required(),
           }),
         }

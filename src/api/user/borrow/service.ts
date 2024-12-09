@@ -63,6 +63,7 @@ class UserBorrowService {
         const books = [];
         for (const book of borrow.borrowedBooks) {
           const bookObject = {
+            id: book.books.id,
             title: book.books.title,
             year: book.books.year,
             writerName: book.books.writers.name,
@@ -74,6 +75,7 @@ class UserBorrowService {
         }
 
         const borrowObject = {
+          id: borrow.id,
           name: borrow.user.profile?.name,
           address: borrow.user.profile?.address,
           status: borrow.status,
@@ -123,6 +125,7 @@ class UserBorrowService {
 
       for (const book of readBorrowById.borrowedBooks) {
         const bookObject = {
+          id: book.books.id,
           title: book.books.title,
           year: book.books.year,
           writerName: book.books.writers.name,
@@ -134,6 +137,7 @@ class UserBorrowService {
       }
 
       const data = {
+        id: readBorrowById.id,
         name: readBorrowById.user.profile?.name,
         address: readBorrowById.user.profile?.address,
         status: readBorrowById.status,

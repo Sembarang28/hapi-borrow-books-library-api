@@ -1,0 +1,4149 @@
+{
+	"info": {
+		"_postman_id": "c296e43e-9c49-4a06-a246-d085c8a918c6",
+		"name": "Library",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27461483"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"admin123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:{{port-hapi}}/auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port-hapi}}",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"admin123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/auth/login",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "set-cookie",
+									"value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMjc3N2FjNC05MTIwLTRkNmYtYTc2Yi1iZGNiOTYzZDhlNzEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MzEyMjA2MzUsImV4cCI6MTczMTgyNTQzNX0._dW28QsUPrYfunO3wU2iEE7NaQiX0_AaSXfFuLSvxeQ; Max-Age=604; Expires=Sun, 10 Nov 2024 06:47:20 GMT; HttpOnly; SameSite=None; Path=/"
+								},
+								{
+									"key": "content-length",
+									"value": "511"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 10 Nov 2024 06:37:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Berhasil login!\",\n    \"data\": {\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMjc3N2FjNC05MTIwLTRkNmYtYTc2Yi1iZGNiOTYzZDhlNzEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MzEyMjA2MzUsImV4cCI6MTczMTIyNDIzNX0.pPVb6ma81vr3PAhslXaz4gD87WEpCo5b48cvnEHvOTw\",\n        \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMjc3N2FjNC05MTIwLTRkNmYtYTc2Yi1iZGNiOTYzZDhlNzEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MzEyMjA2MzUsImV4cCI6MTczMTgyNTQzNX0._dW28QsUPrYfunO3wU2iEE7NaQiX0_AaSXfFuLSvxeQ\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:{{port-hapi}}/auth/refresh",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port-hapi}}",
+							"path": [
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Refresh Token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/auth/refresh",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"auth",
+										"refresh"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "content-length",
+									"value": "293"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 10 Nov 2024 06:37:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"New Access Token generated!\",\n    \"data\": {\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMjc3N2FjNC05MTIwLTRkNmYtYTc2Yi1iZGNiOTYzZDhlNzEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MzEyMjA2NDQsImV4cCI6MTczMTgyNTQ0NH0.mFD4kGZQIl_Ch0Ucq_wQdBliVh_AFTRLhGLO7-yyfnA\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:{{port-hapi}}/auth/logout",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port-hapi}}",
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Logout",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/auth/logout",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "set-cookie",
+									"value": "refreshToken=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:00 GMT; Secure; HttpOnly; SameSite=Strict"
+								},
+								{
+									"key": "content-length",
+									"value": "44"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 10 Nov 2024 06:37:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Logout berhasil!\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Admin Crud",
+					"item": [
+						{
+							"name": "Read Admin Data",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Read Admin Data",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "201"
+										},
+										{
+											"key": "accept-ranges",
+											"value": "bytes"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 06:37:52 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"data berhasil ditemukan!\",\n    \"data\": {\n        \"email\": \"admin@example.com\",\n        \"name\": \"Admin\",\n        \"job\": \"Admin\",\n        \"birthDate\": \"2024-01-01T00:00:00.000Z\",\n        \"birthPlace\": \"Makassar\",\n        \"address\": \"Address\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Admin",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"admin@example.com\",\n    \"name\": \"Admin\",\n    \"job\": \"Admin\",\n    \"birthDate\": \"2024-01-01\",\n    \"birthPlace\": \"Makassar\",\n    \"address\": \"Address\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update Admin",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"admin@example.com\",\n    \"name\": \"Admin\",\n    \"job\": \"Admin\",\n    \"birthDate\": \"2024-01-01\",\n    \"birthPlace\": \"Makassar\",\n    \"address\": \"Address\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "49"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 06:38:03 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"data berhasil diubah!\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Admin Password",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"oldPassword\": \"admin123\",\n    \"newPassword\": \"admin123\",\n    \"confirmPassword\": \"admin123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/pass",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"pass"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oldPassword\": \"admin123\",\n    \"newPassword\": \"admin123\",\n    \"confirmPassword\": \"admin123\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/pass",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"pass"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "53"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 06:38:16 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Password berhasil diubah!\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Writers",
+					"item": [
+						{
+							"name": "Create Writer",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"John Doe\",\n    \"birthDate\": \"2024-10-10\",\n    \"birthPlace\": \"Makassar\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/writer",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"writer"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create Writer",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Jane Doe\",\n    \"birthDate\": \"2024-10-10\",\n    \"birthPlace\": \"Makassar\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/writer",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"writer"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "51"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 06:38:35 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditambah!\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Read All Writer",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/writer?name=Jane",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"writer"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Jane"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Read All Writer",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/writer",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"writer"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "422"
+										},
+										{
+											"key": "accept-ranges",
+											"value": "bytes"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 06:38:49 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditemukan!\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"John Doe\",\n            \"birthDate\": \"2024-10-10T00:00:00.000Z\",\n            \"birthPlace\": \"Makassar\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"John Does\",\n            \"birthDate\": \"2024-10-10T00:00:00.000Z\",\n            \"birthPlace\": \"Makassar\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Jane Doe\",\n            \"birthDate\": \"2024-10-10T00:00:00.000Z\",\n            \"birthPlace\": \"Makassar\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Jane Doe\",\n            \"birthDate\": \"2024-10-10T00:00:00.000Z\",\n            \"birthPlace\": \"Makassar\"\n        }\n    ]\n}"
+								},
+								{
+									"name": "Read All Writer Query",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/writer?name=Jane",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"writer"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "Jane"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "151"
+										},
+										{
+											"key": "accept-ranges",
+											"value": "bytes"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 06:48:09 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditemukan!\",\n    \"data\": [\n        {\n            \"id\": 3,\n            \"name\": \"Jane Doe\",\n            \"birthDate\": \"2024-10-10T00:00:00.000Z\",\n            \"birthPlace\": \"Makassar\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Read Writer By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/writer/1",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"writer",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Read Writer By Id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/writer/1",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"writer",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "149"
+										},
+										{
+											"key": "accept-ranges",
+											"value": "bytes"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 06:39:49 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditemukan!\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"John Doe\",\n        \"birthDate\": \"2024-10-10T00:00:00.000Z\",\n        \"birthPlace\": \"Makassar\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Writer By Id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Andrea Hirata\",\n    \"birthDate\": \"2024-10-10\",\n    \"birthPlace\": \"Makassar\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/writer/1",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"writer",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update Writer By id",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Andrea Hirata\",\n    \"birthDate\": \"2024-10-10\",\n    \"birthPlace\": \"Makassar\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/writer/1",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"writer",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "49"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 06:40:40 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil diubah!\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Writer By Id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/writer/4",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"writer",
+										"4"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Delete Writer By Id",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/writer/4",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"writer",
+												"4"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "50"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 06:43:51 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil dihapus!\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Publishers",
+					"item": [
+						{
+							"name": "Create Publisher",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Gramedia\",\n    \"city\": \"Jakarta\",\n    \"address\": \"Jakarta Selatan Jl Kemerdekaan No. 1000\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/publisher",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"publisher"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create Publisher",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Gramedia\",\n    \"city\": \"Jakarta\",\n    \"address\": \"Jakarta Selatan Jl Kemerdekaan No. 1000\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/publisher",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"publisher"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "50"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 06:54:03 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditambah\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Read All Publisher",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/publisher?name=Gramedia&address=Jakarta Selatan Jl Kemerdekaan No. 1000&city=Bandung",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"publisher"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Gramedia"
+										},
+										{
+											"key": "address",
+											"value": "Jakarta Selatan Jl Kemerdekaan No. 1000"
+										},
+										{
+											"key": "city",
+											"value": "Bandung"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Read All Publisher",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/publisher",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"publisher"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "448"
+										},
+										{
+											"key": "accept-ranges",
+											"value": "bytes"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 06:56:11 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditemukan\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Gramedia\",\n            \"address\": \"Jakarta Selatan Jl Kemerdekaan No. 1000\",\n            \"city\": \"Jakarta\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Erlangga\",\n            \"address\": \"Jakarta Selatan Jl Kemerdekaan No. 1001\",\n            \"city\": \"Jakarta\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Informatika\",\n            \"address\": \"Jakarta Selatan Jl Kemerdekaan No. 1001\",\n            \"city\": \"Jakarta\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Gramedias\",\n            \"address\": \"Jakarta Selatan Jl Kemerdekaan No. 1000\",\n            \"city\": \"Jakarta\"\n        }\n    ]\n}"
+								},
+								{
+									"name": "Read All Publisher Query",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/publisher?name=Gramedia&address=Jakarta Selatan Jl Kemerdekaan No. 1000&city=Bandung",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"publisher"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "Gramedia"
+												},
+												{
+													"key": "address",
+													"value": "Jakarta Selatan Jl Kemerdekaan No. 1000"
+												},
+												{
+													"key": "city",
+													"value": "Bandung"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "157"
+										},
+										{
+											"key": "accept-ranges",
+											"value": "bytes"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 06:57:43 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditemukan\",\n    \"data\": [\n        {\n            \"id\": 5,\n            \"name\": \"Gramedias\",\n            \"address\": \"Jakarta Selatan Jl Kemerdekaan No. 1000\",\n            \"city\": \"Bandung\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Read Publisher By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/publisher/5",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"publisher",
+										"5"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Read Publisher By Id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/publisher/5",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"publisher",
+												"5"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "155"
+										},
+										{
+											"key": "accept-ranges",
+											"value": "bytes"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 06:58:27 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditemukan\",\n    \"data\": {\n        \"id\": 5,\n        \"name\": \"Gramedias\",\n        \"address\": \"Jakarta Selatan Jl Kemerdekaan No. 1000\",\n        \"city\": \"Bandung\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Publisher By Id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Gramedia\",\n    \"city\": \"Bandung\",\n    \"address\": \"Jakarta Selatan Jl Kemerdekaan No. 1000\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/publisher/4",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"publisher",
+										"4"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update Publisher By Id",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Gramedia\",\n    \"city\": \"Bandung\",\n    \"address\": \"Jakarta Selatan Jl Kemerdekaan No. 1000\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/publisher/4",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"publisher",
+												"4"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "48"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 06:59:17 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil diubah\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Publisher By Id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/publisher/4",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"publisher",
+										"4"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Delete Publisher By Id",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/publisher/4",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"publisher",
+												"4"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "49"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 06:59:48 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil dihapus\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Books",
+					"item": [
+						{
+							"name": "Create Book",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Persona 5\",\n    \"year\": \"2022\",\n    \"writerId\": 3,\n    \"publisherId\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/book",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"book"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create Book",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\": \"Buku Bagus\",\n    \"year\": \"2020\",\n    \"writerId\": 1,\n    \"publisherId\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/book",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"book"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "50"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 07:10:42 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditambah\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Read All Books",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/book",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"book"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "Persona",
+											"disabled": true
+										},
+										{
+											"key": "year",
+											"value": "2022",
+											"disabled": true
+										},
+										{
+											"key": "publisherName",
+											"value": "Erlangga",
+											"disabled": true
+										},
+										{
+											"key": "writerName",
+											"value": "Andrea Hirata",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Read All Books",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/book",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"book"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "vary",
+											"value": "accept-encoding"
+										},
+										{
+											"key": "content-encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 11 Nov 2024 09:59:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditemukan\",\n    \"data\": [\n        {\n            \"id\": \"0bb760b0-ca6f-40f7-8bdf-e53463ea8aa0\",\n            \"title\": \"Buku Bagus\",\n            \"year\": \"2020\",\n            \"writerName\": \"Jane Doe\",\n            \"publisherName\": \"Gramedia\",\n            \"publisherCity\": \"Jakarta\"\n        },\n        {\n            \"id\": \"2677db11-13f5-408e-babb-e94ef35bd86a\",\n            \"title\": \"Buku Bagus Banget\",\n            \"year\": \"2021\",\n            \"writerName\": \"John Doe\",\n            \"publisherName\": \"Erlangga\",\n            \"publisherCity\": \"Jakarta\"\n        },\n        {\n            \"id\": \"289ed2e0-7c5c-48f2-b8b1-fa8180f87412\",\n            \"title\": \"Buku Bagus Banget Banget\",\n            \"year\": \"2022\",\n            \"writerName\": \"Andrea Hirata\",\n            \"publisherName\": \"Informatika\",\n            \"publisherCity\": \"Jakarta\"\n        },\n        {\n            \"id\": \"b0d2ef9a-5431-4488-9773-a85e743209f8\",\n            \"title\": \"Harry Potter\",\n            \"year\": \"2022\",\n            \"writerName\": \"Jane Doe\",\n            \"publisherName\": \"Informatika\",\n            \"publisherCity\": \"Jakarta\"\n        },\n        {\n            \"id\": \"389d6c85-2121-4c9a-b91a-8f5cfe10c55e\",\n            \"title\": \"Persona\",\n            \"year\": \"2022\",\n            \"writerName\": \"Jane Doe\",\n            \"publisherName\": \"Erlangga\",\n            \"publisherCity\": \"Jakarta\"\n        },\n        {\n            \"id\": \"ccaec392-b45b-4992-88e2-f3ea5ca730b2\",\n            \"title\": \"Persona 5\",\n            \"year\": \"2022\",\n            \"writerName\": \"Andrea Hirata\",\n            \"publisherName\": \"Erlangga\",\n            \"publisherCity\": \"Jakarta\"\n        },\n        {\n            \"id\": \"c5272eb0-e7bc-405d-8b13-5eaac7249765\",\n            \"title\": \"Persona 5\",\n            \"year\": \"2022\",\n            \"writerName\": \"Andrea Hirata\",\n            \"publisherName\": \"Erlangga\",\n            \"publisherCity\": \"Jakarta\"\n        }\n    ]\n}"
+								},
+								{
+									"name": "Read All Books Filter",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/book?title=Persona&year=2022&publisherName=Erlangga&writerName=Andrea Hirata",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"book"
+											],
+											"query": [
+												{
+													"key": "title",
+													"value": "Persona"
+												},
+												{
+													"key": "year",
+													"value": "2022"
+												},
+												{
+													"key": "publisherName",
+													"value": "Erlangga"
+												},
+												{
+													"key": "writerName",
+													"value": "Andrea Hirata"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "384"
+										},
+										{
+											"key": "accept-ranges",
+											"value": "bytes"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 11 Nov 2024 10:02:47 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditemukan\",\n    \"data\": [\n        {\n            \"id\": \"ccaec392-b45b-4992-88e2-f3ea5ca730b2\",\n            \"title\": \"Persona 5\",\n            \"year\": \"2022\",\n            \"writerName\": \"Andrea Hirata\",\n            \"publisherName\": \"Erlangga\",\n            \"publisherCity\": \"Jakarta\"\n        },\n        {\n            \"id\": \"c5272eb0-e7bc-405d-8b13-5eaac7249765\",\n            \"title\": \"Persona 5\",\n            \"year\": \"2022\",\n            \"writerName\": \"Andrea Hirata\",\n            \"publisherName\": \"Erlangga\",\n            \"publisherCity\": \"Jakarta\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Read Book By Id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/book/c5272eb0-e7bc-405d-8b13-5eaac7249765",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"book",
+										"c5272eb0-e7bc-405d-8b13-5eaac7249765"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Read Book By Id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/book/c5272eb0-e7bc-405d-8b13-5eaac7249765",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"book",
+												"c5272eb0-e7bc-405d-8b13-5eaac7249765"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "220"
+										},
+										{
+											"key": "accept-ranges",
+											"value": "bytes"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 11 Nov 2024 10:03:03 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditemukan\",\n    \"data\": {\n        \"id\": \"c5272eb0-e7bc-405d-8b13-5eaac7249765\",\n        \"title\": \"Persona 5\",\n        \"year\": \"2022\",\n        \"writerName\": \"Andrea Hirata\",\n        \"publisherName\": \"Erlangga\",\n        \"publisherCity\": \"Jakarta\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Book By Id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Persona\",\n    \"year\": \"2023\",\n    \"writerId\": 3,\n    \"publisherId\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/book/c5272eb0-e7bc-405d-8b13-5eaac7249765",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"book",
+										"c5272eb0-e7bc-405d-8b13-5eaac7249765"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update Book By Id",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\": \"Persona\",\n    \"year\": \"2023\",\n    \"writerId\": 3,\n    \"publisherId\": 2\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/book/c5272eb0-e7bc-405d-8b13-5eaac7249765",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"book",
+												"c5272eb0-e7bc-405d-8b13-5eaac7249765"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "48"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 11 Nov 2024 10:04:04 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil diubah\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Book By Id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/book/c5272eb0-e7bc-405d-8b13-5eaac7249765",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"book",
+										"c5272eb0-e7bc-405d-8b13-5eaac7249765"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Delete Book By Id",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/book/c5272eb0-e7bc-405d-8b13-5eaac7249765",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"book",
+												"c5272eb0-e7bc-405d-8b13-5eaac7249765"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "49"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 11 Nov 2024 10:04:30 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil dihapus\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Create User",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"john@gmail.com\",\n    \"password\": \"12345678\",\n    \"name\": \"John Doe\",\n    \"job\": \"programmer\",\n    \"birthDate\": \"2000-01-01\",\n    \"birthPlace\": \"Makassar\",\n    \"address\": \"Makassar\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/user",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"user"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create User",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"john@gmail.com\",\n    \"password\": \"12345678\",\n    \"name\": \"John Doe\",\n    \"job\": \"programmer\",\n    \"birthDate\": \"2000-01-01\",\n    \"birthPlace\": \"Makassar\",\n    \"address\": \"Makassar\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/user",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"user"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "50"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 03:16:56 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditambah\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Read All User",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/user",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"user"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Read All User",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/user",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"user"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "1021"
+										},
+										{
+											"key": "accept-ranges",
+											"value": "bytes"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 03:19:11 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditemukan\",\n    \"data\": [\n        {\n            \"id\": \"191a5e71-b1df-4c16-b194-e589250d325e\",\n            \"email\": \"john@gmail.com\",\n            \"name\": \"John Doe\",\n            \"job\": \"programmer\",\n            \"birthDate\": \"2000-01-01T00:00:00.000Z\",\n            \"birthPlace\": \"Makassar\",\n            \"address\": \"Makassar\"\n        },\n        {\n            \"id\": \"07aca87e-6b7d-4a58-b8ab-1d513e91cdbe\",\n            \"email\": \"johnn@gmail.com\",\n            \"name\": \"John Doe\",\n            \"job\": \"programmer\",\n            \"birthDate\": \"2000-01-01T00:00:00.000Z\",\n            \"birthPlace\": \"Makassar\",\n            \"address\": \"Makassar\"\n        },\n        {\n            \"id\": \"de551e27-e1a5-4132-932a-0087706311c4\",\n            \"email\": \"jane@gmail.com\",\n            \"name\": \"Jane Doe\",\n            \"job\": \"programmer\",\n            \"birthDate\": \"2000-01-01T00:00:00.000Z\",\n            \"birthPlace\": \"Makassar\",\n            \"address\": \"Makassar\"\n        },\n        {\n            \"id\": \"d5542f89-e150-4b33-9075-2f945aa68afc\",\n            \"email\": \"jack@gmail.com\",\n            \"name\": \"Jack Doe\",\n            \"job\": \"programmer\",\n            \"birthDate\": \"2000-01-01T00:00:00.000Z\",\n            \"birthPlace\": \"Makassar\",\n            \"address\": \"Makassar\"\n        },\n        {\n            \"id\": \"2fd8c03a-48ff-4f90-b3b0-3b4b59954fa1\",\n            \"email\": \"agil@gmail.com\",\n            \"name\": \"agil Doe\",\n            \"job\": \"programmer\",\n            \"birthDate\": \"2000-01-01T00:00:00.000Z\",\n            \"birthPlace\": \"Makassar\",\n            \"address\": \"Makassar\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Read User By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/user/2fd8c03a-48ff-4f90-b3b0-3b4b59954fa1",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"user",
+										"2fd8c03a-48ff-4f90-b3b0-3b4b59954fa1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Read User By Id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/user/2fd8c03a-48ff-4f90-b3b0-3b4b59954fa1",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"user",
+												"2fd8c03a-48ff-4f90-b3b0-3b4b59954fa1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "250"
+										},
+										{
+											"key": "accept-ranges",
+											"value": "bytes"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 03:23:41 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditemukan\",\n    \"data\": {\n        \"id\": \"2fd8c03a-48ff-4f90-b3b0-3b4b59954fa1\",\n        \"email\": \"agil@gmail.com\",\n        \"name\": \"agil Doe\",\n        \"job\": \"programmer\",\n        \"birthDate\": \"2000-01-01T00:00:00.000Z\",\n        \"birthPlace\": \"Makassar\",\n        \"address\": \"Makassar\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update User By Id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"johns@gmail.com\",\n    \"name\": \"John Doe\",\n    \"job\": \"programmer\",\n    \"birthDate\": \"2000-01-01\",\n    \"birthPlace\": \"Makassar\",\n    \"address\": \"Makassar\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/user/2fd8c03a-48ff-4f90-b3b0-3b4b59954fa1",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"user",
+										"2fd8c03a-48ff-4f90-b3b0-3b4b59954fa1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update User By id",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"johns@gmail.com\",\n    \"name\": \"John Doe\",\n    \"job\": \"programmer\",\n    \"birthDate\": \"2000-01-01\",\n    \"birthPlace\": \"Makassar\",\n    \"address\": \"Makassar\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/user/2fd8c03a-48ff-4f90-b3b0-3b4b59954fa1",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"user",
+												"2fd8c03a-48ff-4f90-b3b0-3b4b59954fa1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "48"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 03:27:18 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil diubah\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Password By Id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\": \"12345678\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/user/pass/2fd8c03a-48ff-4f90-b3b0-3b4b59954fa1",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"user",
+										"pass",
+										"2fd8c03a-48ff-4f90-b3b0-3b4b59954fa1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update Password By Id",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"password\": \"12345678\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/user/pass/2fd8c03a-48ff-4f90-b3b0-3b4b59954fa1",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"user",
+												"pass",
+												"2fd8c03a-48ff-4f90-b3b0-3b4b59954fa1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "52"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 03:31:36 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Password berhasil diubah\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Borrow",
+					"item": [
+						{
+							"name": "Create Borrow",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\": \"2fd8c03a-48ff-4f90-b3b0-3b4b59954fa1\",\n    \"books\": [\"0bb760b0-ca6f-40f7-8bdf-e53463ea8aa0\", \"389d6c85-2121-4c9a-b91a-8f5cfe10c55e\", \"ccaec392-b45b-4992-88e2-f3ea5ca730b2\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/borrow",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"borrow"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create Borrow",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"userId\": \"191a5e71-b1df-4c16-b194-e589250d325e\",\n    \"books\": [\"0bb760b0-ca6f-40f7-8bdf-e53463ea8aa0\", \"2677db11-13f5-408e-babb-e94ef35bd86a\", \"289ed2e0-7c5c-48f2-b8b1-fa8180f87412\"]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/borrow",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"borrow"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "50"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 08:07:24 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditambah\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Read All Borrow",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/borrow",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"borrow"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "John",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "borrow",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Read All Borrow",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/borrow",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"borrow"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "vary",
+											"value": "accept-encoding"
+										},
+										{
+											"key": "content-encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 08:34:27 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditemukan\",\n    \"data\": [\n        {\n            \"id\": \"dcdeb4fb-c0c8-47a8-a90a-c81ecc43d3b4\",\n            \"userId\": \"191a5e71-b1df-4c16-b194-e589250d325e\",\n            \"name\": \"John Doe\",\n            \"address\": \"Makassar\",\n            \"status\": \"borrow\",\n            \"borrowDate\": \"2024-11-12T00:00:00.000Z\",\n            \"returnDate\": \"2024-11-19T00:00:00.000Z\",\n            \"books\": [\n                {\n                    \"borrowBookId\": \"c37ab5c6-97de-4381-9b75-0bbb70e1d093\",\n                    \"bookId\": \"0bb760b0-ca6f-40f7-8bdf-e53463ea8aa0\",\n                    \"title\": \"Buku Bagus\",\n                    \"year\": \"2020\",\n                    \"writerName\": \"Jane Doe\",\n                    \"publisherName\": \"Gramedia\",\n                    \"publisherCity\": \"Jakarta\"\n                },\n                {\n                    \"borrowBookId\": \"46df9782-f7f5-4056-bd3e-efc54710c40d\",\n                    \"bookId\": \"2677db11-13f5-408e-babb-e94ef35bd86a\",\n                    \"title\": \"Buku Bagus Banget\",\n                    \"year\": \"2021\",\n                    \"writerName\": \"John Doe\",\n                    \"publisherName\": \"Erlangga\",\n                    \"publisherCity\": \"Jakarta\"\n                },\n                {\n                    \"borrowBookId\": \"a173e024-5022-4583-a442-0d8a1a8e4f54\",\n                    \"bookId\": \"289ed2e0-7c5c-48f2-b8b1-fa8180f87412\",\n                    \"title\": \"Buku Bagus Banget Banget\",\n                    \"year\": \"2022\",\n                    \"writerName\": \"Andrea Hirata\",\n                    \"publisherName\": \"Informatika\",\n                    \"publisherCity\": \"Jakarta\"\n                }\n            ]\n        },\n        {\n            \"id\": \"44f57e56-6040-43c7-8d5e-6832a64692af\",\n            \"userId\": \"de551e27-e1a5-4132-932a-0087706311c4\",\n            \"name\": \"Jane Doe\",\n            \"address\": \"Makassar\",\n            \"status\": \"borrow\",\n            \"borrowDate\": \"2024-11-12T00:00:00.000Z\",\n            \"returnDate\": \"2024-11-19T00:00:00.000Z\",\n            \"books\": [\n                {\n                    \"borrowBookId\": \"b44dd288-b1ee-4295-b38f-f1a61db631c9\",\n                    \"bookId\": \"0bb760b0-ca6f-40f7-8bdf-e53463ea8aa0\",\n                    \"title\": \"Buku Bagus\",\n                    \"year\": \"2020\",\n                    \"writerName\": \"Jane Doe\",\n                    \"publisherName\": \"Gramedia\",\n                    \"publisherCity\": \"Jakarta\"\n                },\n                {\n                    \"borrowBookId\": \"c4967f55-7453-4da0-9fcb-dff84afb9f38\",\n                    \"bookId\": \"389d6c85-2121-4c9a-b91a-8f5cfe10c55e\",\n                    \"title\": \"Persona\",\n                    \"year\": \"2022\",\n                    \"writerName\": \"Jane Doe\",\n                    \"publisherName\": \"Erlangga\",\n                    \"publisherCity\": \"Jakarta\"\n                },\n                {\n                    \"borrowBookId\": \"82c9809d-87b8-4097-8642-8c5aec49ef87\",\n                    \"bookId\": \"389d6c85-2121-4c9a-b91a-8f5cfe10c55e\",\n                    \"title\": \"Persona\",\n                    \"year\": \"2022\",\n                    \"writerName\": \"Jane Doe\",\n                    \"publisherName\": \"Erlangga\",\n                    \"publisherCity\": \"Jakarta\"\n                }\n            ]\n        },\n        {\n            \"id\": \"33a417d1-8ecb-467d-9dc0-0777afdebff8\",\n            \"userId\": \"2fd8c03a-48ff-4f90-b3b0-3b4b59954fa1\",\n            \"name\": \"John Doe\",\n            \"address\": \"Makassar\",\n            \"status\": \"borrow\",\n            \"borrowDate\": \"2024-11-12T00:00:00.000Z\",\n            \"returnDate\": \"2024-11-19T00:00:00.000Z\",\n            \"books\": [\n                {\n                    \"borrowBookId\": \"89fef431-92ab-4712-95c3-fd9ef5896f8a\",\n                    \"bookId\": \"0bb760b0-ca6f-40f7-8bdf-e53463ea8aa0\",\n                    \"title\": \"Buku Bagus\",\n                    \"year\": \"2020\",\n                    \"writerName\": \"Jane Doe\",\n                    \"publisherName\": \"Gramedia\",\n                    \"publisherCity\": \"Jakarta\"\n                },\n                {\n                    \"borrowBookId\": \"214647d1-210b-4371-badf-38684b3e7840\",\n                    \"bookId\": \"389d6c85-2121-4c9a-b91a-8f5cfe10c55e\",\n                    \"title\": \"Persona\",\n                    \"year\": \"2022\",\n                    \"writerName\": \"Jane Doe\",\n                    \"publisherName\": \"Erlangga\",\n                    \"publisherCity\": \"Jakarta\"\n                },\n                {\n                    \"borrowBookId\": \"7fbb0a87-cec9-4987-b8e9-52ba1a288ce7\",\n                    \"bookId\": \"ccaec392-b45b-4992-88e2-f3ea5ca730b2\",\n                    \"title\": \"Persona 5\",\n                    \"year\": \"2022\",\n                    \"writerName\": \"Andrea Hirata\",\n                    \"publisherName\": \"Erlangga\",\n                    \"publisherCity\": \"Jakarta\"\n                },\n                {\n                    \"borrowBookId\": \"0014e6b2-91a2-483f-9668-48328f283b81\",\n                    \"bookId\": \"2677db11-13f5-408e-babb-e94ef35bd86a\",\n                    \"title\": \"Buku Bagus Banget\",\n                    \"year\": \"2021\",\n                    \"writerName\": \"John Doe\",\n                    \"publisherName\": \"Erlangga\",\n                    \"publisherCity\": \"Jakarta\"\n                }\n            ]\n        }\n    ]\n}"
+								},
+								{
+									"name": "Read All Borrow Filter",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/borrow?name=John&status=borrow",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"borrow"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "John"
+												},
+												{
+													"key": "status",
+													"value": "borrow"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "vary",
+											"value": "accept-encoding"
+										},
+										{
+											"key": "content-encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 08:35:44 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditemukan\",\n    \"data\": [\n        {\n            \"id\": \"dcdeb4fb-c0c8-47a8-a90a-c81ecc43d3b4\",\n            \"userId\": \"191a5e71-b1df-4c16-b194-e589250d325e\",\n            \"name\": \"John Doe\",\n            \"address\": \"Makassar\",\n            \"status\": \"borrow\",\n            \"borrowDate\": \"2024-11-12T00:00:00.000Z\",\n            \"returnDate\": \"2024-11-19T00:00:00.000Z\",\n            \"books\": [\n                {\n                    \"borrowBookId\": \"c37ab5c6-97de-4381-9b75-0bbb70e1d093\",\n                    \"bookId\": \"0bb760b0-ca6f-40f7-8bdf-e53463ea8aa0\",\n                    \"title\": \"Buku Bagus\",\n                    \"year\": \"2020\",\n                    \"writerName\": \"Jane Doe\",\n                    \"publisherName\": \"Gramedia\",\n                    \"publisherCity\": \"Jakarta\"\n                },\n                {\n                    \"borrowBookId\": \"46df9782-f7f5-4056-bd3e-efc54710c40d\",\n                    \"bookId\": \"2677db11-13f5-408e-babb-e94ef35bd86a\",\n                    \"title\": \"Buku Bagus Banget\",\n                    \"year\": \"2021\",\n                    \"writerName\": \"John Doe\",\n                    \"publisherName\": \"Erlangga\",\n                    \"publisherCity\": \"Jakarta\"\n                },\n                {\n                    \"borrowBookId\": \"a173e024-5022-4583-a442-0d8a1a8e4f54\",\n                    \"bookId\": \"289ed2e0-7c5c-48f2-b8b1-fa8180f87412\",\n                    \"title\": \"Buku Bagus Banget Banget\",\n                    \"year\": \"2022\",\n                    \"writerName\": \"Andrea Hirata\",\n                    \"publisherName\": \"Informatika\",\n                    \"publisherCity\": \"Jakarta\"\n                }\n            ]\n        },\n        {\n            \"id\": \"33a417d1-8ecb-467d-9dc0-0777afdebff8\",\n            \"userId\": \"2fd8c03a-48ff-4f90-b3b0-3b4b59954fa1\",\n            \"name\": \"John Doe\",\n            \"address\": \"Makassar\",\n            \"status\": \"borrow\",\n            \"borrowDate\": \"2024-11-12T00:00:00.000Z\",\n            \"returnDate\": \"2024-11-19T00:00:00.000Z\",\n            \"books\": [\n                {\n                    \"borrowBookId\": \"89fef431-92ab-4712-95c3-fd9ef5896f8a\",\n                    \"bookId\": \"0bb760b0-ca6f-40f7-8bdf-e53463ea8aa0\",\n                    \"title\": \"Buku Bagus\",\n                    \"year\": \"2020\",\n                    \"writerName\": \"Jane Doe\",\n                    \"publisherName\": \"Gramedia\",\n                    \"publisherCity\": \"Jakarta\"\n                },\n                {\n                    \"borrowBookId\": \"214647d1-210b-4371-badf-38684b3e7840\",\n                    \"bookId\": \"389d6c85-2121-4c9a-b91a-8f5cfe10c55e\",\n                    \"title\": \"Persona\",\n                    \"year\": \"2022\",\n                    \"writerName\": \"Jane Doe\",\n                    \"publisherName\": \"Erlangga\",\n                    \"publisherCity\": \"Jakarta\"\n                },\n                {\n                    \"borrowBookId\": \"7fbb0a87-cec9-4987-b8e9-52ba1a288ce7\",\n                    \"bookId\": \"ccaec392-b45b-4992-88e2-f3ea5ca730b2\",\n                    \"title\": \"Persona 5\",\n                    \"year\": \"2022\",\n                    \"writerName\": \"Andrea Hirata\",\n                    \"publisherName\": \"Erlangga\",\n                    \"publisherCity\": \"Jakarta\"\n                },\n                {\n                    \"borrowBookId\": \"0014e6b2-91a2-483f-9668-48328f283b81\",\n                    \"bookId\": \"2677db11-13f5-408e-babb-e94ef35bd86a\",\n                    \"title\": \"Buku Bagus Banget\",\n                    \"year\": \"2021\",\n                    \"writerName\": \"John Doe\",\n                    \"publisherName\": \"Erlangga\",\n                    \"publisherCity\": \"Jakarta\"\n                }\n            ]\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Read Borrow By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/borrow/33a417d1-8ecb-467d-9dc0-0777afdebff8",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"borrow",
+										"33a417d1-8ecb-467d-9dc0-0777afdebff8"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Read Borrow By Id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/borrow/33a417d1-8ecb-467d-9dc0-0777afdebff8",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"borrow",
+												"33a417d1-8ecb-467d-9dc0-0777afdebff8"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "vary",
+											"value": "accept-encoding"
+										},
+										{
+											"key": "content-encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 08:36:49 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditemukan\",\n    \"data\": {\n        \"name\": \"John Doe\",\n        \"address\": \"Makassar\",\n        \"status\": \"borrow\",\n        \"borrowDate\": \"2024-11-12T00:00:00.000Z\",\n        \"returnDate\": \"2024-11-19T00:00:00.000Z\",\n        \"books\": [\n            {\n                \"borrowBookId\": \"89fef431-92ab-4712-95c3-fd9ef5896f8a\",\n                \"bookId\": \"0bb760b0-ca6f-40f7-8bdf-e53463ea8aa0\",\n                \"title\": \"Buku Bagus\",\n                \"year\": \"2020\",\n                \"writerName\": \"Jane Doe\",\n                \"publisherName\": \"Gramedia\",\n                \"publisherCity\": \"Jakarta\"\n            },\n            {\n                \"borrowBookId\": \"214647d1-210b-4371-badf-38684b3e7840\",\n                \"bookId\": \"389d6c85-2121-4c9a-b91a-8f5cfe10c55e\",\n                \"title\": \"Persona\",\n                \"year\": \"2022\",\n                \"writerName\": \"Jane Doe\",\n                \"publisherName\": \"Erlangga\",\n                \"publisherCity\": \"Jakarta\"\n            },\n            {\n                \"borrowBookId\": \"7fbb0a87-cec9-4987-b8e9-52ba1a288ce7\",\n                \"bookId\": \"ccaec392-b45b-4992-88e2-f3ea5ca730b2\",\n                \"title\": \"Persona 5\",\n                \"year\": \"2022\",\n                \"writerName\": \"Andrea Hirata\",\n                \"publisherName\": \"Erlangga\",\n                \"publisherCity\": \"Jakarta\"\n            },\n            {\n                \"borrowBookId\": \"0014e6b2-91a2-483f-9668-48328f283b81\",\n                \"bookId\": \"2677db11-13f5-408e-babb-e94ef35bd86a\",\n                \"title\": \"Buku Bagus Banget\",\n                \"year\": \"2021\",\n                \"writerName\": \"John Doe\",\n                \"publisherName\": \"Erlangga\",\n                \"publisherCity\": \"Jakarta\"\n            }\n        ]\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Borrow By Id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": \"return\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/borrow/4edadd46-6c76-4f0f-8487-4ddd99c8ff8b",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"borrow",
+										"4edadd46-6c76-4f0f-8487-4ddd99c8ff8b"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update Borrow By Id",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"return\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/borrow/4edadd46-6c76-4f0f-8487-4ddd99c8ff8b",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"borrow",
+												"4edadd46-6c76-4f0f-8487-4ddd99c8ff8b"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "48"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 08:22:29 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil diubah\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Borrow By Id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": \"return\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/borrow/4edadd46-6c76-4f0f-8487-4ddd99c8ff8b",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"borrow",
+										"4edadd46-6c76-4f0f-8487-4ddd99c8ff8b"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Delete Borrow By Id",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"return\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/borrow/4edadd46-6c76-4f0f-8487-4ddd99c8ff8b",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"borrow",
+												"4edadd46-6c76-4f0f-8487-4ddd99c8ff8b"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "48"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 08:23:11 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil diubah\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Borrowed Books",
+					"item": [
+						{
+							"name": "Create Borrowed Book",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"borrowId\": \"33a417d1-8ecb-467d-9dc0-0777afdebff8\",\n    \"bookId\": \"2677db11-13f5-408e-babb-e94ef35bd86a\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/borrow/book",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"borrow",
+										"book"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create Borrowed Book",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"borrowId\": \"33a417d1-8ecb-467d-9dc0-0777afdebff8\",\n    \"bookId\": \"2677db11-13f5-408e-babb-e94ef35bd86a\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/borrow/book",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"borrow",
+												"book"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "50"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 08:31:00 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditambah\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Read Borrowed Book By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/borrow/book/0014e6b2-91a2-483f-9668-48328f283b81",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"borrow",
+										"book",
+										"0014e6b2-91a2-483f-9668-48328f283b81"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Read Borrowed Book By Id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/borrow/book/0014e6b2-91a2-483f-9668-48328f283b81",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"borrow",
+												"book",
+												"0014e6b2-91a2-483f-9668-48328f283b81"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "51"
+										},
+										{
+											"key": "accept-ranges",
+											"value": "bytes"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 08:38:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditemukan\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Create Borrowed Book Copy 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"borrowId\": \"33a417d1-8ecb-467d-9dc0-0777afdebff8\",\n    \"bookId\": \"2677db11-13f5-408e-babb-e94ef35bd86a\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/borrow/book",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"borrow",
+										"book"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create Borrowed Book",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"borrowId\": \"33a417d1-8ecb-467d-9dc0-0777afdebff8\",\n    \"bookId\": \"2677db11-13f5-408e-babb-e94ef35bd86a\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/borrow/book",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"borrow",
+												"book"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "50"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 08:31:00 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditambah\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Create Borrowed Book Copy 3",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"borrowId\": \"33a417d1-8ecb-467d-9dc0-0777afdebff8\",\n    \"bookId\": \"2677db11-13f5-408e-babb-e94ef35bd86a\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/admin/borrow/book",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"admin",
+										"borrow",
+										"book"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create Borrowed Book",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"borrowId\": \"33a417d1-8ecb-467d-9dc0-0777afdebff8\",\n    \"bookId\": \"2677db11-13f5-408e-babb-e94ef35bd86a\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/admin/borrow/book",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"admin",
+												"borrow",
+												"book"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "50"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 08:31:00 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditambah\"\n}"
+								}
+							]
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwM2YzZWY0Mi1mMDVhLTRmNDMtYjM4Yy1jZjg5Mzg0ZjI3MTEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MzM3MzczNzgsImV4cCI6MTczMzc0MDk3OH0.AtgIfXNNGFrTSJwtLcGA5Ml5xU1sckLYdnn40Y6wThs",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"john@example.com\",\n    \"password\": \"12345678\",\n    \"name\": \"John Doe\",\n    \"job\": \"programmer\",\n    \"birthDate\": \"2000-01-01\",\n    \"birthPlace\": \"Makassar\",\n    \"address\": \"Makassar\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/user",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"user"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Register",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"john@example.com\",\n    \"password\": \"12345678\",\n    \"name\": \"John Doe\",\n    \"job\": \"programmer\",\n    \"birthDate\": \"2000-01-01\",\n    \"birthPlace\": \"Makassar\",\n    \"address\": \"Makassar\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/user",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"user"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "vary",
+											"value": "origin"
+										},
+										{
+											"key": "access-control-expose-headers",
+											"value": "WWW-Authenticate,Server-Authorization"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "51"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 09 Dec 2024 09:53:17 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"data berhasil ditambah!\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Read User Data",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/user",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"user"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Read User Data",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/user",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"user"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "vary",
+											"value": "origin"
+										},
+										{
+											"key": "access-control-expose-headers",
+											"value": "WWW-Authenticate,Server-Authorization"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "207"
+										},
+										{
+											"key": "accept-ranges",
+											"value": "bytes"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 09 Dec 2024 09:53:47 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"data berhasil ditemukan!\",\n    \"data\": {\n        \"email\": \"john@gmail.com\",\n        \"name\": \"John Doe\",\n        \"job\": \"programmer\",\n        \"birthDate\": \"2000-01-01T00:00:00.000Z\",\n        \"birthPlace\": \"Makassar\",\n        \"address\": \"Makassar\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update User Data",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"john@gmail.com\",\n    \"name\": \"John Doe\",\n    \"job\": \"programmer\",\n    \"birthDate\": \"2000-01-01\",\n    \"birthPlace\": \"Makassar\",\n    \"address\": \"Makassar\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/user",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"user"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update User Data",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"john@gmail.com\",\n    \"name\": \"John Doe\",\n    \"job\": \"programmer\",\n    \"birthDate\": \"2000-01-01\",\n    \"birthPlace\": \"Makassar\",\n    \"address\": \"Makassar\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/user",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"user"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "vary",
+											"value": "origin"
+										},
+										{
+											"key": "access-control-expose-headers",
+											"value": "WWW-Authenticate,Server-Authorization"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "49"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 09 Dec 2024 09:58:38 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"data berhasil diubah!\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update User Password",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"oldPassword\": \"12345678\",\n    \"newPassword\": \"12345678\",\n    \"confirmPassword\": \"12345678\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/user/pass",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"user",
+										"pass"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update User Password",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oldPassword\": \"12345678\",\n    \"newPassword\": \"12345678\",\n    \"confirmPassword\": \"12345678\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/user/pass",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"user",
+												"pass"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "vary",
+											"value": "origin"
+										},
+										{
+											"key": "access-control-expose-headers",
+											"value": "WWW-Authenticate,Server-Authorization"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "53"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 09 Dec 2024 10:03:10 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Password berhasil diubah!\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Books",
+					"item": [
+						{
+							"name": "Read All Book",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/user/book",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"user",
+										"book"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Read All Book",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/user/book",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"user",
+												"book"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "vary",
+											"value": "origin,accept-encoding"
+										},
+										{
+											"key": "access-control-expose-headers",
+											"value": "WWW-Authenticate,Server-Authorization"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 09 Dec 2024 10:06:00 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditemukan\",\n    \"data\": [\n        {\n            \"id\": \"0bb760b0-ca6f-40f7-8bdf-e53463ea8aa0\",\n            \"title\": \"Buku Bagus\",\n            \"year\": \"2020\",\n            \"writerName\": \"Jane Doe\",\n            \"publisherName\": \"Gramedia\",\n            \"publisherCity\": \"Jakarta\"\n        },\n        {\n            \"id\": \"2677db11-13f5-408e-babb-e94ef35bd86a\",\n            \"title\": \"Buku Bagus Banget\",\n            \"year\": \"2021\",\n            \"writerName\": \"John Doe\",\n            \"publisherName\": \"Erlangga\",\n            \"publisherCity\": \"Jakarta\"\n        },\n        {\n            \"id\": \"289ed2e0-7c5c-48f2-b8b1-fa8180f87412\",\n            \"title\": \"Buku Bagus Banget Banget\",\n            \"year\": \"2022\",\n            \"writerName\": \"Andrea Hirata\",\n            \"publisherName\": \"Informatika\",\n            \"publisherCity\": \"Jakarta\"\n        },\n        {\n            \"id\": \"b0d2ef9a-5431-4488-9773-a85e743209f8\",\n            \"title\": \"Harry Potter\",\n            \"year\": \"2022\",\n            \"writerName\": \"Jane Doe\",\n            \"publisherName\": \"Informatika\",\n            \"publisherCity\": \"Jakarta\"\n        },\n        {\n            \"id\": \"389d6c85-2121-4c9a-b91a-8f5cfe10c55e\",\n            \"title\": \"Persona\",\n            \"year\": \"2022\",\n            \"writerName\": \"Jane Doe\",\n            \"publisherName\": \"Erlangga\",\n            \"publisherCity\": \"Jakarta\"\n        },\n        {\n            \"id\": \"ccaec392-b45b-4992-88e2-f3ea5ca730b2\",\n            \"title\": \"Persona 5\",\n            \"year\": \"2022\",\n            \"writerName\": \"Andrea Hirata\",\n            \"publisherName\": \"Erlangga\",\n            \"publisherCity\": \"Jakarta\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Read Book By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/user/book/0bb760b0-ca6f-40f7-8bdf-e53463ea8aa0",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"user",
+										"book",
+										"0bb760b0-ca6f-40f7-8bdf-e53463ea8aa0"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Read Book By Id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/user/book/0bb760b0-ca6f-40f7-8bdf-e53463ea8aa0",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"user",
+												"book",
+												"0bb760b0-ca6f-40f7-8bdf-e53463ea8aa0"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "vary",
+											"value": "origin"
+										},
+										{
+											"key": "access-control-expose-headers",
+											"value": "WWW-Authenticate,Server-Authorization"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "216"
+										},
+										{
+											"key": "accept-ranges",
+											"value": "bytes"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 09 Dec 2024 10:06:50 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditemukan\",\n    \"data\": {\n        \"id\": \"0bb760b0-ca6f-40f7-8bdf-e53463ea8aa0\",\n        \"title\": \"Buku Bagus\",\n        \"year\": \"2020\",\n        \"writerName\": \"Jane Doe\",\n        \"publisherName\": \"Gramedia\",\n        \"publisherCity\": \"Jakarta\"\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Borrow",
+					"item": [
+						{
+							"name": "Create Borrow",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"books\": [\"0bb760b0-ca6f-40f7-8bdf-e53463ea8aa0\", \"389d6c85-2121-4c9a-b91a-8f5cfe10c55e\", \"ccaec392-b45b-4992-88e2-f3ea5ca730b2\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/user/borrow",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"user",
+										"borrow"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create Borrow",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"books\": [\"0bb760b0-ca6f-40f7-8bdf-e53463ea8aa0\", \"389d6c85-2121-4c9a-b91a-8f5cfe10c55e\", \"ccaec392-b45b-4992-88e2-f3ea5ca730b2\"]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/user/borrow",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"user",
+												"borrow"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "vary",
+											"value": "origin"
+										},
+										{
+											"key": "access-control-expose-headers",
+											"value": "WWW-Authenticate,Server-Authorization"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "50"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 09 Dec 2024 10:35:34 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditambah\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Read All User Borrow",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/user/borrow",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"user",
+										"borrow"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Read All User Borrow",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/user/borrow",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"user",
+												"borrow"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "vary",
+											"value": "origin,accept-encoding"
+										},
+										{
+											"key": "access-control-expose-headers",
+											"value": "WWW-Authenticate,Server-Authorization"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 09 Dec 2024 10:37:50 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditemukan\",\n    \"data\": [\n        {\n            \"id\": \"dcdeb4fb-c0c8-47a8-a90a-c81ecc43d3b4\",\n            \"name\": \"John Doe\",\n            \"address\": \"Makassar\",\n            \"status\": \"borrow\",\n            \"borrowDate\": \"2024-11-12T00:00:00.000Z\",\n            \"returnDate\": \"2024-11-19T00:00:00.000Z\",\n            \"books\": [\n                {\n                    \"id\": \"0bb760b0-ca6f-40f7-8bdf-e53463ea8aa0\",\n                    \"title\": \"Buku Bagus\",\n                    \"year\": \"2020\",\n                    \"writerName\": \"Jane Doe\",\n                    \"publisherName\": \"Gramedia\",\n                    \"publisherCity\": \"Jakarta\"\n                },\n                {\n                    \"id\": \"2677db11-13f5-408e-babb-e94ef35bd86a\",\n                    \"title\": \"Buku Bagus Banget\",\n                    \"year\": \"2021\",\n                    \"writerName\": \"John Doe\",\n                    \"publisherName\": \"Erlangga\",\n                    \"publisherCity\": \"Jakarta\"\n                },\n                {\n                    \"id\": \"289ed2e0-7c5c-48f2-b8b1-fa8180f87412\",\n                    \"title\": \"Buku Bagus Banget Banget\",\n                    \"year\": \"2022\",\n                    \"writerName\": \"Andrea Hirata\",\n                    \"publisherName\": \"Informatika\",\n                    \"publisherCity\": \"Jakarta\"\n                }\n            ]\n        },\n        {\n            \"id\": \"c2951950-a17e-4b3c-9615-4f37e7e7abd0\",\n            \"name\": \"John Doe\",\n            \"address\": \"Makassar\",\n            \"status\": \"borrow\",\n            \"borrowDate\": \"2024-12-09T00:00:00.000Z\",\n            \"returnDate\": \"2024-12-16T00:00:00.000Z\",\n            \"books\": [\n                {\n                    \"id\": \"0bb760b0-ca6f-40f7-8bdf-e53463ea8aa0\",\n                    \"title\": \"Buku Bagus\",\n                    \"year\": \"2020\",\n                    \"writerName\": \"Jane Doe\",\n                    \"publisherName\": \"Gramedia\",\n                    \"publisherCity\": \"Jakarta\"\n                },\n                {\n                    \"id\": \"389d6c85-2121-4c9a-b91a-8f5cfe10c55e\",\n                    \"title\": \"Persona\",\n                    \"year\": \"2022\",\n                    \"writerName\": \"Jane Doe\",\n                    \"publisherName\": \"Erlangga\",\n                    \"publisherCity\": \"Jakarta\"\n                },\n                {\n                    \"id\": \"ccaec392-b45b-4992-88e2-f3ea5ca730b2\",\n                    \"title\": \"Persona 5\",\n                    \"year\": \"2022\",\n                    \"writerName\": \"Andrea Hirata\",\n                    \"publisherName\": \"Erlangga\",\n                    \"publisherCity\": \"Jakarta\"\n                }\n            ]\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Read User Borrow By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port-hapi}}/user/borrow/dcdeb4fb-c0c8-47a8-a90a-c81ecc43d3b4",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port-hapi}}",
+									"path": [
+										"user",
+										"borrow",
+										"dcdeb4fb-c0c8-47a8-a90a-c81ecc43d3b4"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Read All User Borrow",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:{{port-hapi}}/user/borrow/dcdeb4fb-c0c8-47a8-a90a-c81ecc43d3b4",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port-hapi}}",
+											"path": [
+												"user",
+												"borrow",
+												"dcdeb4fb-c0c8-47a8-a90a-c81ecc43d3b4"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "vary",
+											"value": "origin"
+										},
+										{
+											"key": "access-control-expose-headers",
+											"value": "WWW-Authenticate,Server-Authorization"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache"
+										},
+										{
+											"key": "content-length",
+											"value": "754"
+										},
+										{
+											"key": "accept-ranges",
+											"value": "bytes"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 09 Dec 2024 10:38:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Data berhasil ditemukan\",\n    \"data\": {\n        \"id\": \"dcdeb4fb-c0c8-47a8-a90a-c81ecc43d3b4\",\n        \"name\": \"John Doe\",\n        \"address\": \"Makassar\",\n        \"status\": \"borrow\",\n        \"borrowDate\": \"2024-11-12T00:00:00.000Z\",\n        \"returnDate\": \"2024-11-19T00:00:00.000Z\",\n        \"books\": [\n            {\n                \"id\": \"0bb760b0-ca6f-40f7-8bdf-e53463ea8aa0\",\n                \"title\": \"Buku Bagus\",\n                \"year\": \"2020\",\n                \"writerName\": \"Jane Doe\",\n                \"publisherName\": \"Gramedia\",\n                \"publisherCity\": \"Jakarta\"\n            },\n            {\n                \"id\": \"2677db11-13f5-408e-babb-e94ef35bd86a\",\n                \"title\": \"Buku Bagus Banget\",\n                \"year\": \"2021\",\n                \"writerName\": \"John Doe\",\n                \"publisherName\": \"Erlangga\",\n                \"publisherCity\": \"Jakarta\"\n            },\n            {\n                \"id\": \"289ed2e0-7c5c-48f2-b8b1-fa8180f87412\",\n                \"title\": \"Buku Bagus Banget Banget\",\n                \"year\": \"2022\",\n                \"writerName\": \"Andrea Hirata\",\n                \"publisherName\": \"Informatika\",\n                \"publisherCity\": \"Jakarta\"\n            }\n        ]\n    }\n}"
+								}
+							]
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxOTFhNWU3MS1iMWRmLTRjMTYtYjE5NC1lNTg5MjUwZDMyNWUiLCJyb2xlIjoidXNlciIsImlhdCI6MTczMzczNzgxNywiZXhwIjoxNzMzNzQxNDE3fQ.6ulStYHCQix5BLxxrUZj2deRmCxJpdiLctN5OSQfUzc",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port-hapi}}/test",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port-hapi}}",
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost",
+			"type": "string"
+		},
+		{
+			"key": "port-hapi",
+			"value": "3000",
+			"type": "string"
+		}
+	]
+}
